@@ -9,7 +9,3 @@
   </nav>
 
 </footer>
-
-</body>
-
-</html>

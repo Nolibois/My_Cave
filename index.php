@@ -1,4 +1,3 @@
 <?php
-require './view/header.php';
 
-require './view/footer.php';
+require 'view/homeView.php';
