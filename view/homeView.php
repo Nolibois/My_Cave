@@ -2,7 +2,7 @@
 
 <?php
 // For TESTING
-$imgBottle = 'public/img/block_nine.jpg';
+$imgBottle = '../public/img/block_nine.jpg';
 $name = 'BLOCK NINE';
 $country = 'USA';
 $year = '2009';

@@ -3,13 +3,24 @@
   padding: 0;
 }
 
-header {
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+header,
+footer {
   height: 100px;
+  width: 100vw;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-header a {
+header a,
+footer a {
   height: 100%;
   display: flex;
   justify-content: center;
@@ -29,6 +40,16 @@ nav ul li {
 }
 nav ul li a {
   text-decoration: none;
+}
+
+#presentation {
+  width: 100vw;
+  height: 20vh;
+  padding: 0 10vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 /*# sourceMappingURL=style.css.map */
