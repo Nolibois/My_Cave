@@ -5,7 +5,7 @@
 <section>
   <h1>Connexion</h1>
 
-  <form action="" method="post">
+  <form action="../controller/controller.php" method="post">
     <div>
       <label for="email">Email</label>
       <input type="email" name="email" id="email">
@@ -14,7 +14,9 @@
       <label for="pass">Mot de passe</label>
       <input type="password" name="pass" id="pass">
     </div>
-    <div><input type="submit" value="">Connexion</div>
+    <div>
+      <input type="submit" name="btn-connect" value="Connexion">
+    </div>
   </form>
 </section>
 
