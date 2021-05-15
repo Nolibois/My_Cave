@@ -3,20 +3,21 @@
   <nav>
     <?php
     if (!empty($_SESSION)) {
-      var_dump($_SESSION);
     ?>
-
       <p>Vous êtes bien connecté <?= $_SESSION['firstname'] ?> <?= $_SESSION['lastname'] ?></p>
     <?php
-      $connected = "<a href='index.php?action=disconnect'>Déconnexion</a>";
+      $connected = "<li><a href='index.php'>Accueil</a></li>
+      <li><a href='index.php?action=bottles'>Bouteilles</a></li>
+      <li><a href='index.php?action=setCave'>Gérer ma cave</a></li>
+      <li><a href='index.php?action=disconnect'>Déconnexion</a></li>";
     } else {
-      $connected = "<a href='index.php?action=formconnect'>Connexion</a>";
+      $connected = "<li><a href='index.php'>Accueil</a></li>
+      <li><a href='index.php?action=bottles'>Bouteilles</a></li>
+      <li><a href='index.php?action=formconnect'>Connexion</a></li>";
     }
     ?>
     <ul>
-      <li><a href="index.php">Accueil</a></li>
-      <li><a href="">Bouteilles</a></li>
-      <li><?= $connected; ?></li>
+      <?= $connected; ?>
     </ul>
   </nav>
 </header>

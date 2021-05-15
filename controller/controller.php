@@ -1,8 +1,6 @@
 <?php
-session_start();
 require 'model/model.php';
 
-$msgError = [];
 
 //////////// Home Page /////////////////////////////////
 function index()
@@ -16,10 +14,30 @@ function formConnect()
   require 'view/connectUser.php';
 }
 
+function connectUser($email)
+{
+  $result = getUserInfos($email);
+  return $result;
+}
+
 ///////////////////////// DISCONNECT USER ////////////////////////
 
 function disconnectUser()
 {
+  session_unset();
   session_destroy();
+
   require 'view/homeView.php';
+}
+
+
+//////////////////////// LIST BOTTLES /////////////////////////////
+
+function listBottles()
+{
+  $result = getListBottles();
+  $listBottles = $result->fetchAll();
+
+  $result->closeCursor();
+  require 'view/listBottles.php';
 }
