@@ -28,7 +28,6 @@ ob_start();
       <th>Région</th>
       <th>Description</th>
     </tr>
-
   </thead>
 
   <tbody>
@@ -43,7 +42,7 @@ ob_start();
         <td><?= $value['country']; ?></td>
         <td><?= $value['region']; ?></td>
         <td><?= $value['description']; ?></td>
-        <td><a href="#?set=<?= $value['id']; ?>">Sélectionner</a></td>
+        <td><a href="index.php?action=manageCave&set=<?= $value['id']; ?>">Sélectionner</a></td>
       </tr>
     <?php
     }
@@ -55,7 +54,7 @@ ob_start();
 ////// Display form if bottle selected
 <form action="" method="post">
   <div>
-    <input type="text" name="name" id="name" value=<?= $value['name']; ?>>
+    <input type="text" name="name" id="name" value='<?= $value['name']; ?>'>
   </div>
   <div>
     <select name="year" id="year">
@@ -64,30 +63,16 @@ ob_start();
     </select>
   </div>
   <div>
-    <select name="" id="">
-      <option value="merlot">
-        <input type="checkbox" name="" id="merlot">
-        <label for="merlot">Merlot</label>
-      </option>
-      <option value="grenacheNoir">
-        <input type="checkbox" name="" id="grenacheNoir">
-        <label for="grenacheNoir">Grenache noir</label>
-      </option>
-      <option value="syrah">
-        <input type="checkbox" name="" id="syrah">
-        <label for="syrah">Syrah</label>
-      </option>
-    </select>
-
+    <label for="id_label_multiple">
+      <select class="js-example-basic-multiple js-example-data-array js-states form-control" id="id_label_multiple" multiple="multiple"></select>
+    </label>
   </div>
   <div>
     <input type="text" name="country" id="country" value=<?= $value['country']; ?>>
   </div>
   <div>
-
+    <input type="submit" value="Envoyer">
   </div>
-
-
 </form>
 
 

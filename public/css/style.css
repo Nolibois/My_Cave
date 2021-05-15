@@ -52,4 +52,8 @@ nav ul li a {
   justify-content: space-around;
 }
 
+select {
+  width: 150px;
+}
+
 /*# sourceMappingURL=style.css.map */
