@@ -33,11 +33,25 @@ function disconnectUser()
 
 //////////////////////// LIST BOTTLES /////////////////////////////
 
-function listBottles()
+function listBottles($action)
 {
   $result = getListBottles();
   $listBottles = $result->fetchAll();
 
   $result->closeCursor();
-  require 'view/listBottles.php';
+
+  //// Redirection
+  if ($action == 'bottles') {
+    require 'view/listBottles.php';
+  } elseif ($action == 'manageCave') {
+    require 'view/manageCave.php';
+  }
+}
+
+
+/////////////////////// SET BOTTLE ///////////////////////
+
+function setBottle($arrayBottle)
+{
+  updateBottle($arrayBottle);
 }

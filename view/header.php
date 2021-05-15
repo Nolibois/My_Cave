@@ -8,7 +8,7 @@
     <?php
       $connected = "<li><a href='index.php'>Accueil</a></li>
       <li><a href='index.php?action=bottles'>Bouteilles</a></li>
-      <li><a href='index.php?action=setCave'>Gérer ma cave</a></li>
+      <li><a href='index.php?action=manageCave'>Gérer ma cave</a></li>
       <li><a href='index.php?action=disconnect'>Déconnexion</a></li>";
     } else {
       $connected = "<li><a href='index.php'>Accueil</a></li>

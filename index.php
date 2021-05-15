@@ -42,16 +42,18 @@ if (isset($_GET['action'])) {
   // Ask to go page Connection
   if ($_GET['action'] == 'formconnect') {
     formConnect();
-  }
 
-  // Ask for Disconnection
-  if ($_GET['action'] == 'disconnect') {
+    // Ask for Disconnection
+  } elseif ($_GET['action'] == 'disconnect') {
     disconnectUser();
-  }
 
-  // List bottles
-  if ($_GET['action'] == 'bottles') {
-    listBottles();
+    // List bottles
+  } elseif ($_GET['action'] == 'bottles') {
+    listBottles($_GET['action']);
+
+    // List and manage Bottles
+  } elseif (($_GET['action'] == "manageCave") && $_SESSION['admin'] == 1) {
+    listBottles($_GET['action']);
   }
 } elseif (!empty($msgError)) {
   foreach ($msgError as $value) {

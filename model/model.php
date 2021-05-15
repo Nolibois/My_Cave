@@ -16,29 +16,19 @@ function getListBottles()
 {
   $bdd = dbConnect();
 
-  $result = $bdd->query("SELECT name, year, grapes, country, region, description, picture FROM bottles");
+  $result = $bdd->query("SELECT id, name, year, grapes, country, region, description, picture FROM bottles");
 
   return $result;
 }
 
 ///////// UPDATE existing Bottle
-function setBottle($îd)
+function updateBottle($arrayBottle)
 {
   $bdd = dbConnect();
 
-  $result = $bdd->prepare('UPDATE bottles SET name = :name, year = :year, grapes = :grapes, country = :country, region = :region, description = :description, picture = :picture WHERE id = :id');
+  $req = $bdd->prepare('UPDATE bottles SET name = :name, year = :year, grapes = :grapes, country = :country, region = :region, description = :description, picture = :picture WHERE id = :id');
 
-  $result->execute([
-    '
-    "name" => :name,
-    "year" => :year,
-    "grapes" => :grapes,
-    "country" => :country,
-    "region" => :region,
-    "description" => :description,
-    "picture" => :picture
-    '
-  ]);
+  $req->execute($arrayBottle);
 
-  return $result;
+  $req->closeCursor();
 }
