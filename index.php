@@ -4,6 +4,8 @@ require 'controller/controller.php';
 
 $msgError = [];
 
+var_dump($msgError);
+
 //////////////////// Check connection User //////////////////
 if (isset($_POST['btn-connect'])) {
   if (!empty($_POST['email']) && !empty($_POST['pass'])) {
@@ -53,16 +55,31 @@ if (isset($_GET['action'])) {
 
     // List and manage Bottles
   } elseif (($_GET['action'] == "manageCave") && $_SESSION['admin'] == 1) {
-    listBottles($_GET['action']);
+
+    if (isset($_GET['set'])) {
+
+      // Display list bottles and form for settings
+      if (is_numeric($_GET['set'])) {
+        listBottles($_GET['action']);
+      } else {
+        array_push($msgError, 'L\'identifiant de la bouteille à modifier ne correspond pas.');
+
+        msgerrors($msgError);
+?>
+        <a href="index.php?action=manageCave">Retour à Gestion de ma cave</a>
+  <?php
+
+      }
+
+      // Display list bottles and manage links
+    } else {
+      listBottles($_GET['action']);
+    }
   }
 } elseif (!empty($msgError)) {
-  foreach ($msgError as $value) {
-?>
-    <p>
-      <?= $value; ?>
-    </p>
-  <?php
-  }
+
+  msgerrors($msgError);
+
   ?>
   <a href="index.php?action=formconnect">Retour au formulaire de connexion</a>
 <?php

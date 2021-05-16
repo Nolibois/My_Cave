@@ -1,6 +1,18 @@
 <?php
 require 'model/model.php';
 
+///////////// Read Messages Error ///////////////
+function msgerrors($listErrors)
+{
+  foreach ($listErrors as $value) {
+?>
+    <p>
+      <?= $value; ?>
+    </p>
+<?php
+  }
+}
+
 
 //////////// Home Page /////////////////////////////////
 function index()

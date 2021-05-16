@@ -8,7 +8,6 @@ ob_start();
 <h1>Toutes les bouteilles de la cave</h1>
 
 <table>
-
   <thead>
     <tr>
       <th></th>

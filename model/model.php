@@ -1,6 +1,7 @@
 <?php
 require_once 'dbconnect.php';
 
+
 ////////// Read infos user to connection
 function getUserInfos($email)
 {
@@ -16,7 +17,7 @@ function getListBottles()
 {
   $bdd = dbConnect();
 
-  $result = $bdd->query("SELECT id, name, year, grapes, country, region, description, picture FROM bottles");
+  $result = $bdd->query("SELECT id, name, year, grapes, country, region, description, picture, date_creation, date_last_setting FROM bottles");
 
   return $result;
 }
@@ -26,7 +27,7 @@ function updateBottle($arrayBottle)
 {
   $bdd = dbConnect();
 
-  $req = $bdd->prepare('UPDATE bottles SET name = :name, year = :year, grapes = :grapes, country = :country, region = :region, description = :description, picture = :picture WHERE id = :id');
+  $req = $bdd->prepare('UPDATE bottles SET name = :name, year = :year, grapes = :grapes, country = :country, region = :region, description = :description, picture = :picture, date_last_setting = NOW() WHERE id = :id');
 
   $req->execute($arrayBottle);
 

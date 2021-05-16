@@ -7,7 +7,7 @@ $(document).ready(function () {
     },
     {
       id: 1,
-      text: "Grenache noir",
+      text: "Grenache Noir",
     },
     {
       id: 2,
@@ -15,7 +15,7 @@ $(document).ready(function () {
     },
     {
       id: 3,
-      text: "Cabernet sauvignon",
+      text: "Cabernet Sauvignon",
     },
     {
       id: 4,
@@ -23,11 +23,11 @@ $(document).ready(function () {
     },
     {
       id: 5,
-      text: "Pinot noir",
+      text: "Pinot Noir",
     },
     {
       id: 6,
-      text: "Sauvignon blanc",
+      text: "Sauvignon Blanc",
     },
   ];
 
