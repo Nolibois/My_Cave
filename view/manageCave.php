@@ -2,37 +2,6 @@
 
 $pathImg = "public/img/";
 
-
-ob_start();
-////// Display form if bottle selected
-?>
-<form action="" method="post">
-  <div>
-    <input type="text" name="name" id="name" value='<?= $value['name']; ?>'>
-  </div>
-  <div>
-    <select name="year" id="year">
-      <option value=""><?= $value['year']; ?></option>
-      <option value="1977">1977</option>
-    </select>
-  </div>
-  <div>
-    <label for="id_label_multiple">
-      <select class="js-example-basic-multiple js-example-data-array js-states form-control" id="id_label_multiple" multiple="multiple"></select>
-    </label>
-  </div>
-  <div>
-    <input type="text" name="country" id="country" value=<?= $value['country']; ?>>
-  </div>
-  <div>
-    <input type="submit" value="Envoyer">
-  </div>
-</form>
-
-<?php
-
-$formSettings = ob_get_clean();
-
 ob_start();
 ?>
 
@@ -58,6 +27,8 @@ ob_start();
       <th>Pays d'Origine</th>
       <th>Région</th>
       <th>Description</th>
+      <th>Date de création</th>
+      <th>Dernière modification</th>
     </tr>
   </thead>
 
@@ -77,12 +48,45 @@ ob_start();
         <td><?= $value['date_last_setting']; ?></td>
         <td><a href="index.php?action=manageCave&set=<?= $value['id']; ?>">Sélectionner</a></td>
       </tr>
-    <?php
+      <?php
+
+      ////// Display form if bottle selected
+
       if (isset($_GET['set']) && ($_GET['set'] == $value['id'])) {
-        echo $formSettings;
+      ?>
+        <form action="index.php?action=manageCave&set=<?= $value['id']; ?>" method="post">
+          <div>
+            <input type="text" name="name" id="name" value='<?= $value['name']; ?>'>
+          </div>
+          <div>
+            <select name="year" id="year">
+              <option value=<?= (int)$value['year']; ?>><?= (int)$value['year']; ?></option>
+              <option value="1977">1977</option>
+            </select>
+          </div>
+          <div>
+            <label for="id_label_multiple">
+              <select class="js-example-basic-multiple js-example-data-array js-states form-control" id="id_label_multiple" multiple="multiple">
+              </select>
+            </label>
+          </div>
+          <div>
+            <input type="text" name="country" id="country" value=<?= $value['country']; ?>>
+          </div>
+          <div>
+            <input type="text" name="region" id="region" value=<?= $value['region']; ?>>
+          </div>
+          <div>
+            <textarea name="description" id="description"><?= $value['description']; ?></textarea>
+          </div>
+          <div>
+            <input type="submit" name="btn-update-bottle" value="Envoyer">
+          </div>
+        </form>
+
+    <?php
       }
     }
-
     ?>
 
   </tbody>

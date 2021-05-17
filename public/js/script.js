@@ -38,5 +38,6 @@ $(document).ready(function () {
   $(".js-example-basic-multiple").select2({
     placeholder: "Choix des cépages",
     multiple: "multiple",
+    value: data,
   });
 });
