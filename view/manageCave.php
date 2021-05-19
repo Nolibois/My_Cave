@@ -66,12 +66,12 @@ ob_start();
           </div>
           <div>
             <label for="id_label_multiple">
-              <select class="js-example-basic-multiple js-example-data-array js-states form-control" id="id_label_multiple" multiple="multiple">
+              <select class="js-example-basic-multiple js-example-data-array js-states form-control" id="id_label_multiple" name="id_label_multiple[]" multiple="multiple">
               </select>
             </label>
           </div>
           <div>
-            <input type="text" name="country" id="country" value=<?= $value['country']; ?>>
+            <input type="text" name="country" id="country" value="<?= $value['country']; ?>">
           </div>
           <div>
             <input type="text" name="region" id="region" value=<?= $value['region']; ?>>

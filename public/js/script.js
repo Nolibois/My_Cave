@@ -2,31 +2,31 @@ $(document).ready(function () {
   //// Choice "Grapes"
   let data = [
     {
-      id: 0,
+      id: "Merlot",
       text: "Merlot",
     },
     {
-      id: 1,
+      id: "Grenache Noir",
       text: "Grenache Noir",
     },
     {
-      id: 2,
+      id: "Syrah",
       text: "Syrah",
     },
     {
-      id: 3,
+      id: "Cabernet Sauvignon",
       text: "Cabernet Sauvignon",
     },
     {
-      id: 4,
+      id: "Carignan ",
       text: "Carignan ",
     },
     {
-      id: 5,
+      id: "Pinot Noir",
       text: "Pinot Noir",
     },
     {
-      id: 6,
+      id: "Sauvignon Blanc",
       text: "Sauvignon Blanc",
     },
   ];
@@ -38,6 +38,6 @@ $(document).ready(function () {
   $(".js-example-basic-multiple").select2({
     placeholder: "Choix des cépages",
     multiple: "multiple",
-    value: data,
+    selectOnClose: true,
   });
 });

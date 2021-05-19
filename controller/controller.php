@@ -63,7 +63,11 @@ function listBottles($action)
 
 /////////////////////// SET BOTTLE ///////////////////////
 
+// Set bottle
 function setBottle($arrayBottle)
 {
+
   updateBottle($arrayBottle);
+  require 'view/manageCave.php';
+  echo 'Bouteille modifiée!';
 }

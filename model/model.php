@@ -27,7 +27,7 @@ function updateBottle($arrayBottle)
 {
   $bdd = dbConnect();
 
-  $req = $bdd->prepare('UPDATE bottles SET name = :name, year = :year, grapes = :grapes, country = :country, region = :region, description = :description, picture = :picture, date_last_setting = NOW() WHERE id = :id');
+  $req = $bdd->prepare('UPDATE bottles SET name = :name, year = :year, grapes = :grapes, country = :country, region = :region, description = :description, /* picture = :picture, */ date_last_setting = NOW() WHERE id = :id');
 
   $req->execute($arrayBottle);
 
