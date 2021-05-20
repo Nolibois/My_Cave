@@ -4,8 +4,6 @@ require 'controller/controller.php';
 
 $msgError = [];
 
-
-
 //////////////////// Check connection User //////////////////
 if (isset($_POST['btn-connect'])) {
   if (!empty($_POST['email']) && !empty($_POST['pass'])) {
@@ -54,9 +52,9 @@ if (isset($_GET['action'])) {
     listBottles($_GET['action']);
 
     // List and manage Bottles
-  } elseif (($_GET['action'] == "manageCave") && $_SESSION['admin'] == 1) {
+  } elseif (($_GET['action'] == "manageCave") && ($_SESSION['admin'] == 1)) {
 
-    if (isset($_GET['set']) && !isset($_POST['btn-update-bottle'])) {
+    if (isset($_GET['set']) && !isset($_POST['btn-update-bottle']) && !isset($_GET['order'])) {
 
       // Display list bottles and form for settings
       if (is_numeric($_GET['set'])) {
@@ -67,9 +65,35 @@ if (isset($_GET['action'])) {
         msgerrors($msgError);
 ?>
         <a href="index.php?action=manageCave">Retour à Gestion de ma cave</a>
-  <?php
+    <?php
 
       }
+    } elseif (isset($_GET['order']) && !isset($_GET['set'])) {
+
+      // Sort list bottles
+      if (!empty($_GET['order']) && !empty($_GET['column'])) {
+
+        $column = htmlspecialchars(strip_tags($_GET['column']));
+
+        // If Order is increasing ASC
+        if ($_GET['order'] === 'asc') {
+          listBottles('manageCave', 'ORDER BY ' . $column . ' ASC');
+
+          $jsonReturn = [
+            "status" => "OK",
+            "message" => "Liste en ordre croissant"
+          ];
+
+          echo json_encode($jsonReturn);
+
+          // If order is descending DESC
+        } elseif ($_GET['order'] === 'desc') {
+          listBottles('manageCave', 'ORDER BY ' . $column . ' DESC');
+        }
+      } else {
+        array_push($msgError, 'Une erreur est survenue lors du trie.');
+      }
+
 
       // Send to UPDATE settings bottle
     } elseif (isset($_GET['set']) && isset($_POST['btn-update-bottle'])) {
@@ -157,7 +181,14 @@ if (isset($_GET['action'])) {
   }
 } elseif (!empty($msgError)) {
 
-  msgerrors($msgError);
+  foreach ($msgError as $value) {
+    ?>
+    <p>
+      <?= $value; ?>
+    </p>
+  <?php
+    echo json_encode($msgError);
+  }
 
   ?>
   <a href="index.php?action=formconnect">Retour au formulaire de connexion</a>

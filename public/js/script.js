@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  let order = "asc";
+
   //// Choice "Grapes"
   let data = [
     {
@@ -39,5 +41,28 @@ $(document).ready(function () {
     placeholder: "Choix des cépages",
     multiple: "multiple",
     selectOnClose: true,
+  });
+
+  $("#orderName").on("click", () => {
+    /* if(order === 'asc'){
+
+    } */
+
+    $.ajax({
+      url: "index.php",
+      type: "GET",
+      data: "action=manageCave&order=" + order + "&column=name",
+      dataType: "json",
+
+      success: function (jsonReturn, status) {
+        console.log(jsonReturn);
+      },
+
+      error: function (result, status, error) {
+        console.log(result);
+        console.log(error);
+        console.log(status);
+      },
+    });
   });
 });

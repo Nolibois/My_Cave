@@ -2,7 +2,7 @@
 require 'model/model.php';
 
 ///////////// Read Messages Error ///////////////
-function msgerrors($listErrors)
+/* function msgerrors($listErrors)
 {
   foreach ($listErrors as $value) {
 ?>
@@ -11,7 +11,7 @@ function msgerrors($listErrors)
     </p>
 <?php
   }
-}
+} */
 
 
 //////////// Home Page /////////////////////////////////
@@ -45,9 +45,10 @@ function disconnectUser()
 
 //////////////////////// LIST BOTTLES /////////////////////////////
 
-function listBottles($action)
+function listBottles($action, $order = NULL)
 {
-  $result = getListBottles();
+
+  $result = getListBottles($order);
   $listBottles = $result->fetchAll();
 
   $result->closeCursor();
@@ -61,13 +62,13 @@ function listBottles($action)
 }
 
 
-/////////////////////// SET BOTTLE ///////////////////////
+//////////////////////// SET BOTTLE /////////////////////////
 
 // Set bottle
 function setBottle($arrayBottle)
 {
 
   updateBottle($arrayBottle);
-  require 'view/manageCave.php';
-  echo 'Bouteille modifiée!';
+  unset($_GET['set']);
+  listBottles("manageCave");
 }

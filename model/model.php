@@ -13,11 +13,11 @@ function getUserInfos($email)
 }
 
 ///////// Get list bottles 
-function getListBottles()
+function getListBottles($order = " ")
 {
   $bdd = dbConnect();
 
-  $result = $bdd->query("SELECT id, name, year, grapes, country, region, description, picture, date_creation, date_last_setting FROM bottles");
+  $result = $bdd->query("SELECT id, name, year, grapes, country, region, description, picture, date_creation, date_last_setting FROM bottles $order");
 
   return $result;
 }

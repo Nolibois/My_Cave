@@ -21,14 +21,28 @@ ob_start();
   <thead>
     <tr>
       <th></th>
-      <th>Nom du cru</th>
-      <th>Millésime</th>
-      <th>Cépages</th>
-      <th>Pays d'Origine</th>
-      <th>Région</th>
+      <th>Nom du cru
+        <i id="orderName" class="fas fa-sort"></i>
+      </th>
+      <th>Millésime
+        <a href="index.php?action=manageCave&order=asc&column=year"><i class="fas fa-sort"></i></a>
+      </th>
+      <th>Cépages
+        <a href="index.php?action=manageCave&order=asc&column=grapes"><i class="fas fa-sort"></i></a>
+      </th>
+      <th>Pays d'Origine
+        <a href="index.php?action=manageCave&order=asc&column=country"><i class="fas fa-sort"></i></a>
+      </th>
+      <th>Région
+        <a href="index.php?action=manageCave&order=asc&column=region"><i class="fas fa-sort"></i></a>
+      </th>
       <th>Description</th>
-      <th>Date de création</th>
-      <th>Dernière modification</th>
+      <th>Date de création
+        <a href="index.php?action=manageCave&order=asc&column=date_creation"><i class="fas fa-sort"></i></a>
+      </th>
+      <th>Dernière modification
+        <a href="index.php?action=manageCave&order=asc&column=date_last_setting"><i class="fas fa-sort"></i></a>
+      </th>
     </tr>
   </thead>
 
