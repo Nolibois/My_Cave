@@ -25,10 +25,10 @@ if (isset($_POST['btn-connect'])) {
 
         $result->closeCursor();
       } else {
-        array_push($msgError, 'Vos email ou mot de passe ne sont pas valide.');
+        array_push($msgError, "Votre email ou mot de passe n'est pas valide.");
       }
     } else {
-      array_push($msgError, 'Votre email doit correspondre à l\'exemple suivant: chateau@pinot.com');
+      array_push($msgError, "Votre email doit correspondre à l'exemple suivant: chateau@pinot.com");
     }
   } else {
     array_push($msgError, 'Vous devez renseigner votre email et votre mot de passe pour vous connecter.');
@@ -181,7 +181,7 @@ if (isset($_GET['action'])) {
       <?= $value; ?>
     </p>
   <?php
-    echo json_encode($msgError);
+    // echo json_encode($msgError);
   }
 
   ?>
@@ -190,5 +190,3 @@ if (isset($_GET['action'])) {
 } else {
   index();
 }
-
-var_dump($msgError);

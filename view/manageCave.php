@@ -14,12 +14,45 @@ ob_start();
 <ul>
   <p>Dans cet espace vous pouvez: </p>
 
+  <li>Filtrer les bouteilles</li>
   <li>Créer une nouvelle bouteille</li>
   <li>Modifier une existante</li>
   <li>Effacer</li>
 </ul>
 
-<h2>Sélectionner la bouteille à MODIFIER</h2>
+<h2>Sélectionnez par filtre</h2>
+
+<form action="index.php?action=filters" method="post">
+  <div>
+    <label for="name ">Nom du cru</label>
+    <input type="text" name="name" id="name">
+  </div>
+  <div>
+    <label for="year ">Millésime</label>
+    <select name="year" id="year">
+      <option value=<?= $year ?>><?= $year ?></option>
+    </select>
+  </div>
+  <div>
+    <label for="id_label_multiple">
+      <select class="js-example-basic-multiple js-example-data-array js-states form-control" id="id_label_multiple" name="id_label_multiple[]" multiple="multiple">
+      </select>
+    </label>
+  </div>
+  <div>
+    <label for="country ">Pays</label>
+    <input type="text" name="country" id="country">
+  </div>
+  <div>
+    <label for="region ">Région</label>
+    <input type="text" name="region" id="region">
+  </div>
+  <div>
+    <input type="submit" name="btn-filters" value="Filtrer">
+  </div>
+</form>
+
+<h2>Liste des bouteilles à MODIFIER</h2>
 
 <table>
   <thead id="orderName">
@@ -73,6 +106,8 @@ ob_start();
 
       if (isset($_GET['set']) && ($_GET['set'] == $value['id'])) {
       ?>
+
+        <h3>Annulez la modification <a href="index.php?action=manageCave"><i class="far fa-times-circle"></i></a></h3>
         <form action="index.php?action=manageCave&set=<?= $value['id']; ?>" method="post">
           <div>
             <input type="text" name="name" id="name" value='<?= $value['name']; ?>'>

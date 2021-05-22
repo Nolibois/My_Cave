@@ -1,8 +1,10 @@
 $(document).ready(function () {
-  let order = "asc";
-
   //// Choice "Grapes"
   let data = [
+    {
+      id: "wfbb",
+      text: "wgnwcg wdfg",
+    },
     {
       id: "Merlot",
       text: "Merlot",
@@ -39,9 +41,11 @@ $(document).ready(function () {
 
   $(".js-example-basic-multiple").select2({
     placeholder: "Choix des cépages",
-    multiple: "multiple",
-    selectOnClose: true,
+    // multiple: "multiple",
+    allowClear: true,
   });
+
+  ///////////////////////
 
   /* $("#orderName").on("click", ".select-field", (e) => {
     e.preventDefault();
