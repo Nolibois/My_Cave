@@ -2,6 +2,10 @@
 
 $pathImg = "public/img/";
 
+if (!isset($order)) {
+  $order = "no";
+}
+
 ob_start();
 ?>
 
@@ -18,30 +22,31 @@ ob_start();
 <h2>Sélectionner la bouteille à MODIFIER</h2>
 
 <table>
-  <thead>
+  <thead id="orderName">
     <tr>
       <th></th>
       <th>Nom du cru
-        <i id="orderName" class="fas fa-sort"></i>
+        <a href="index.php?action=manageCave&order=<?= $order ?>&column=name"><i class="fas fa-sort"></i></a>
+        <!-- <a href="#" class="select-field"><i class="fas fa-sort"></i></a> -->
       </th>
       <th>Millésime
-        <a href="index.php?action=manageCave&order=asc&column=year"><i class="fas fa-sort"></i></a>
+        <a href="index.php?action=manageCave&order=<?= $order ?>&column=year"><i class="fas fa-sort"></i></a>
       </th>
       <th>Cépages
-        <a href="index.php?action=manageCave&order=asc&column=grapes"><i class="fas fa-sort"></i></a>
+        <a href="index.php?action=manageCave&order=<?= $order ?>&column=grapes"><i class="fas fa-sort"></i></a>
       </th>
       <th>Pays d'Origine
-        <a href="index.php?action=manageCave&order=asc&column=country"><i class="fas fa-sort"></i></a>
+        <a href="index.php?action=manageCave&order=<?= $order ?>&column=country"><i class="fas fa-sort"></i></a>
       </th>
       <th>Région
-        <a href="index.php?action=manageCave&order=asc&column=region"><i class="fas fa-sort"></i></a>
+        <a href="index.php?action=manageCave&order=<?= $order ?>&column=region"><i class="fas fa-sort"></i></a>
       </th>
       <th>Description</th>
       <th>Date de création
-        <a href="index.php?action=manageCave&order=asc&column=date_creation"><i class="fas fa-sort"></i></a>
+        <a href="index.php?action=manageCave&order=<?= $order ?>&column=date_creation"><i class="fas fa-sort"></i></a>
       </th>
       <th>Dernière modification
-        <a href="index.php?action=manageCave&order=asc&column=date_last_setting"><i class="fas fa-sort"></i></a>
+        <a href="index.php?action=manageCave&order=<?= $order ?>&column=date_last_setting"><i class="fas fa-sort"></i></a>
       </th>
     </tr>
   </thead>

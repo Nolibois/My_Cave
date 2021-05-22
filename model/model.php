@@ -13,11 +13,24 @@ function getUserInfos($email)
 }
 
 ///////// Get list bottles 
-function getListBottles($order = " ")
+function getListBottles($order = " ", $column = " ")
 {
+  // Options to sort ASC or DESC
+  if (!empty($order) && !empty($column)) {
+
+    // If != "name" then add sort "names" to ASC
+    if ($column !== 'name') {
+      $orderBy = "ORDER BY " . $column . " " . $order . ", name ASC";
+    } else {
+      $orderBy = "ORDER BY " . $column . " " . $order;
+    }
+  } else {
+    $orderBy = " ";
+  }
+
   $bdd = dbConnect();
 
-  $result = $bdd->query("SELECT id, name, year, grapes, country, region, description, picture, date_creation, date_last_setting FROM bottles $order");
+  $result = $bdd->query("SELECT id, name, year, grapes, country, region, description, picture, date_creation, date_last_setting FROM bottles $orderBy");
 
   return $result;
 }

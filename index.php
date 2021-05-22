@@ -62,7 +62,6 @@ if (isset($_GET['action'])) {
       } else {
         array_push($msgError, 'L\'identifiant de la bouteille à modifier ne correspond pas.');
 
-        msgerrors($msgError);
 ?>
         <a href="index.php?action=manageCave">Retour à Gestion de ma cave</a>
     <?php
@@ -76,19 +75,14 @@ if (isset($_GET['action'])) {
         $column = htmlspecialchars(strip_tags($_GET['column']));
 
         // If Order is increasing ASC
-        if ($_GET['order'] === 'asc') {
-          listBottles('manageCave', 'ORDER BY ' . $column . ' ASC');
-
-          $jsonReturn = [
-            "status" => "OK",
-            "message" => "Liste en ordre croissant"
-          ];
-
-          echo json_encode($jsonReturn);
+        if ($_GET['order'] === 'ASC') {
+          listBottles('manageCave', 'ASC', $column);
 
           // If order is descending DESC
-        } elseif ($_GET['order'] === 'desc') {
-          listBottles('manageCave', 'ORDER BY ' . $column . ' DESC');
+        } elseif ($_GET['order'] === 'DESC') {
+          listBottles('manageCave', 'DESC', $column);
+        } elseif ($_GET['order'] === 'no') {
+          listBottles('manageCave');
         }
       } else {
         array_push($msgError, 'Une erreur est survenue lors du trie.');

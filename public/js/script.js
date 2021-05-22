@@ -43,10 +43,8 @@ $(document).ready(function () {
     selectOnClose: true,
   });
 
-  $("#orderName").on("click", () => {
-    /* if(order === 'asc'){
-
-    } */
+  /* $("#orderName").on("click", ".select-field", (e) => {
+    e.preventDefault();
 
     $.ajax({
       url: "index.php",
@@ -56,13 +54,12 @@ $(document).ready(function () {
 
       success: function (jsonReturn, status) {
         console.log(jsonReturn);
+        alert("bien joué! ");
       },
 
       error: function (result, status, error) {
-        console.log(result);
-        console.log(error);
-        console.log(status);
+        alert(error);
       },
     });
-  });
+  }); */
 });

@@ -45,18 +45,27 @@ function disconnectUser()
 
 //////////////////////// LIST BOTTLES /////////////////////////////
 
-function listBottles($action, $order = NULL)
+function listBottles($action, $order = NULL, $column = NULL)
 {
 
-  $result = getListBottles($order);
+  $result = getListBottles($order, $column);
   $listBottles = $result->fetchAll();
-
   $result->closeCursor();
 
   //// Redirection
   if ($action == 'bottles') {
     require 'view/listBottles.php';
   } elseif ($action == 'manageCave') {
+
+    // Swap GET "order" ASC to DESC and DESC to ASC
+    if ($order === 'ASC') {
+      $order = 'DESC';
+    } elseif ($order === 'DESC') {
+      $order = 'ASC';
+    } elseif ($order === NULL) {
+      $order = "ASC";
+    }
+
     require 'view/manageCave.php';
   }
 }
