@@ -24,33 +24,33 @@ ob_start();
 
 <form action="index.php?action=filters" method="post">
   <div>
-    <label for="name ">Nom du cru</label>
-    <input type="text" name="name" id="name">
+    <label for="nameFilter ">Nom du cru</label>
+    <input type="text" name="nameFilter" id="nameFilter">
   </div>
   <div>
-    <label for="year ">Millésime</label>
-    <select name="year" id="year">
-      <option value=<?= $year ?>><?= $year ?></option>
+    <label for="yearFilterFilter">Millésime</label>
+    <select name="yearFilter" id="yearFilter">
+      <option value="">Année</option>
     </select>
   </div>
   <div>
-    <label for="id_label_multiple">
-      <select class="js-example-basic-multiple js-example-data-array js-states form-control" id="id_label_multiple" name="id_label_multiple[]" multiple="multiple">
-      </select>
-    </label>
+    <label for="id_label_multiple">Cépages</label>
+    <select class="js-example-basic-multiple js-example-data-array js-states form-control" id="id_label_multiple" name="id_label_multiple[]" multiple="multiple">
+    </select>
   </div>
   <div>
-    <label for="country ">Pays</label>
-    <input type="text" name="country" id="country">
+    <label for="countryFilter">Pays</label>
+    <input type="text" name="countryFilter" id="countryFilter">
   </div>
   <div>
-    <label for="region ">Région</label>
-    <input type="text" name="region" id="region">
+    <label for="regionFilter">Région</label>
+    <input type="text" name="regionFilter" id="regionFilter">
   </div>
   <div>
     <input type="submit" name="btn-filters" value="Filtrer">
   </div>
 </form>
+
 
 <h2>Liste des bouteilles à MODIFIER</h2>
 
@@ -60,7 +60,6 @@ ob_start();
       <th></th>
       <th>Nom du cru
         <a href="index.php?action=manageCave&order=<?= $order ?>&column=name"><i class="fas fa-sort"></i></a>
-        <!-- <a href="#" class="select-field"><i class="fas fa-sort"></i></a> -->
       </th>
       <th>Millésime
         <a href="index.php?action=manageCave&order=<?= $order ?>&column=year"><i class="fas fa-sort"></i></a>
@@ -100,44 +99,69 @@ ob_start();
         <td><?= $value['date_last_setting']; ?></td>
         <td><a href="index.php?action=manageCave&set=<?= $value['id']; ?>">Sélectionner</a></td>
       </tr>
+
       <?php
 
-      ////// Display form if bottle selected
-
+      // "Modification" to append between lines of bottles
       if (isset($_GET['set']) && ($_GET['set'] == $value['id'])) {
       ?>
+        <tr>
+          <td colspan="5">
+            <h2>Modification</h2>
+          </td>
+          <td colspan="5">
+            <h3>ou Annuler <a href="index.php?action=manageCave"><i class="far fa-times-circle"></i></a></h3>
+          </td>
 
-        <h3>Annulez la modification <a href="index.php?action=manageCave"><i class="far fa-times-circle"></i></a></h3>
+        </tr>
         <form action="index.php?action=manageCave&set=<?= $value['id']; ?>" method="post">
-          <div>
-            <input type="text" name="name" id="name" value='<?= $value['name']; ?>'>
-          </div>
-          <div>
-            <select name="year" id="year">
-              <option value=<?= (int)$value['year']; ?>><?= (int)$value['year']; ?></option>
-              <option value="1977">1977</option>
-            </select>
-          </div>
-          <div>
-            <label for="id_label_multiple">
-              <select class="js-example-basic-multiple js-example-data-array js-states form-control" id="id_label_multiple" name="id_label_multiple[]" multiple="multiple">
-              </select>
-            </label>
-          </div>
-          <div>
-            <input type="text" name="country" id="country" value="<?= $value['country']; ?>">
-          </div>
-          <div>
-            <input type="text" name="region" id="region" value=<?= $value['region']; ?>>
-          </div>
-          <div>
-            <textarea name="description" id="description"><?= $value['description']; ?></textarea>
-          </div>
-          <div>
-            <input type="submit" name="btn-update-bottle" value="Envoyer">
-          </div>
+          <tr>
+            <td>
+              <img src="" alt="Image à changer">
+            </td>
+            <td>
+              <div>
+                <input type="text" name="name" id="name" value='<?= $value['name']; ?>'>
+              </div>
+            </td>
+            <td>
+              <div>
+                <select name="year" id="year">
+                  <option value=<?= (int)$value['year']; ?>><?= (int)$value['year']; ?></option>
+                  <option value="1977">1977</option>
+                </select>
+              </div>
+            </td>
+            <td>
+              <div>
+                <label for="id_label_multiple_2">
+                  <select class="js-example-basic-multiple-2 js-example-data-array js-states form-control" id="id_label_multiple_2" name="id_label_multiple_2[]" multiple="multiple">
+                  </select>
+                </label>
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="text" name="country" id="country" value="<?= $value['country']; ?>">
+              </div>
+            </td>
+            <td>
+              <div>
+                <input type="text" name="region" id="region" value=<?= $value['region']; ?>>
+              </div>
+            </td>
+            <td>
+              <div>
+                <textarea name="description" id="description"><?= $value['description']; ?></textarea>
+              </div>
+            </td>
+            <td colspan="3">
+              <div>
+                <input type="submit" name="btn-update-bottle" value="Envoyer">
+              </div>
+            </td>
         </form>
-
+        </tr>
     <?php
       }
     }
@@ -145,8 +169,6 @@ ob_start();
 
   </tbody>
 </table>
-
-
 
 
 <?php $content = ob_get_clean();

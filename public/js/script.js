@@ -2,10 +2,6 @@ $(document).ready(function () {
   //// Choice "Grapes"
   let data = [
     {
-      id: "wfbb",
-      text: "wgnwcg wdfg",
-    },
-    {
       id: "Merlot",
       text: "Merlot",
     },
@@ -41,7 +37,13 @@ $(document).ready(function () {
 
   $(".js-example-basic-multiple").select2({
     placeholder: "Choix des cépages",
-    // multiple: "multiple",
+    multiple: "multiple",
+    allowClear: true,
+  });
+
+  $(".js-example-basic-multiple-2").select2({
+    placeholder: "Choix des cépages",
+    multiple: "multiple",
     allowClear: true,
   });
 
