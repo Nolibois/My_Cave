@@ -14,13 +14,16 @@ ob_start();
 <ul>
   <p>Dans cet espace vous pouvez: </p>
 
+  <li>Ajouter une nouvelle bouteille</li>
   <li>Filtrer les bouteilles</li>
-  <li>Créer une nouvelle bouteille</li>
-  <li>Modifier une existante</li>
+  <li>Sélectionner et modifier</li>
   <li>Effacer</li>
 </ul>
 
-<h2>Sélectionnez par filtre</h2>
+<h2>Ajouter</h2>
+
+
+<h2>Filtrer</h2>
 
 <form action="index.php?action=filters" method="post">
   <div>
@@ -28,14 +31,12 @@ ob_start();
     <input type="text" name="nameFilter" id="nameFilter">
   </div>
   <div>
-    <label for="yearFilterFilter">Millésime</label>
-    <select name="yearFilter" id="yearFilter">
-      <option value="">Année</option>
-    </select>
+    <label for="yearFilter">Millésime</label>
+    <select class="js-year-basic js-year-data-array js-states form-control" id="yearFilter" name="yearFilter[]"></select>
   </div>
   <div>
-    <label for="id_label_multiple">Cépages</label>
-    <select class="js-example-basic-multiple js-example-data-array js-states form-control" id="id_label_multiple" name="id_label_multiple[]" multiple="multiple">
+    <label for="id_grapes_multiple">Cépages</label>
+    <select class="js-grapes-basic-multiple js-grapes-data-array js-states form-control" id="id_grapes_multiple" name="id_grapes_multiple[]" multiple="multiple">
     </select>
   </div>
   <div>
@@ -126,18 +127,14 @@ ob_start();
             </td>
             <td>
               <div>
-                <select name="year" id="year">
-                  <option value=<?= (int)$value['year']; ?>><?= (int)$value['year']; ?></option>
-                  <option value="1977">1977</option>
+                <select class="js-year-basic-2 js-year-data-array js-states form-control" id="yearFilter-2" name="yearFilter-2[]">
                 </select>
               </div>
             </td>
             <td>
               <div>
-                <label for="id_label_multiple_2">
-                  <select class="js-example-basic-multiple-2 js-example-data-array js-states form-control" id="id_label_multiple_2" name="id_label_multiple_2[]" multiple="multiple">
-                  </select>
-                </label>
+                <select class="js-grapes-basic-multiple-2 js-grapes-data-array js-states form-control" id="id_label_multiple_2" name="id_label_multiple_2[]" multiple="multiple">
+                </select>
               </div>
             </td>
             <td>

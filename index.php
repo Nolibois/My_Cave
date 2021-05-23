@@ -100,14 +100,14 @@ if (isset($_GET['action'])) {
             $name = htmlspecialchars(strip_tags($_POST['name']));
 
             // Check year length and secure data
-            if (isset($_POST['year']) && !empty($_POST['year'])) {
-              if (is_numeric($_POST['year']) && ($_POST['year'] > 1901) && ($_POST['year'] <= date("Y"))) {
-                $year = htmlspecialchars(strip_tags($_POST['year']));
+            if (isset($_POST['yearFilter-2']) && !empty($_POST['yearFilter-2'][0])) {
+              if (is_numeric($_POST['yearFilter-2'][0]) && ($_POST['yearFilter-2'][0] >= 1900) && ($_POST['yearFilter-2'][0] <= date("Y"))) {
+                $year = htmlspecialchars(strip_tags($_POST['yearFilter-2'][0]));
 
                 // Check grapes and secure data(s)
-                if (isset($_POST['id_label_multiple'])) {
+                if (isset($_POST['id_label_multiple_2'])) {
                   $grapes = "";
-                  foreach ($_POST['id_label_multiple'] as $value) {
+                  foreach ($_POST['id_label_multiple_2'] as $value) {
                     $grapes .= htmlspecialchars(strip_tags($value)) . " / ";
                   }
 
@@ -133,6 +133,7 @@ if (isset($_GET['action'])) {
                               "region" => $region,
                               "description" => $description
                             ];
+
                             setBottle($newSettings);
                           } else {
                             array_push($msgError, 'Veuillez écrire une description de votre vin.');

@@ -1,6 +1,6 @@
 $(document).ready(function () {
   //// Choice "Grapes"
-  let data = [
+  let dataGrapes = [
     {
       id: "Merlot",
       text: "Merlot",
@@ -31,23 +31,56 @@ $(document).ready(function () {
     },
   ];
 
-  $(".js-example-data-array").select2({
-    data: data,
+  $(".js-grapes-data-array").select2({
+    data: dataGrapes,
   });
 
-  $(".js-example-basic-multiple").select2({
+  // For Filters Form
+  $(".js-grapes-basic-multiple").select2({
     placeholder: "Choix des cépages",
     multiple: "multiple",
     allowClear: true,
   });
 
-  $(".js-example-basic-multiple-2").select2({
+  // For Settings Form
+  $(".js-grapes-basic-multiple-2").select2({
     placeholder: "Choix des cépages",
     multiple: "multiple",
     allowClear: true,
   });
 
-  ///////////////////////
+  // For Create New Bottle Form
+  $(".js-grapes-basic-multiple-3").select2({
+    placeholder: "Choix des cépages",
+    multiple: "multiple",
+    allowClear: true,
+  });
+
+  ///////////////// Year ////////////////////
+
+  let dataYear = [];
+  let nowDate = new Date();
+  const firstDate = new Date("january 01, 1900 00:01:00");
+  const firstYear = firstDate.getFullYear();
+  let nbYear = nowDate.getFullYear() - firstYear;
+
+  for (let i = 0; i <= nbYear; i++) {
+    dataYear.push(firstYear + i);
+  }
+
+  $(".js-year-data-array").select2({
+    data: dataYear,
+  });
+
+  $(".js-year-basic").select2({
+    placeholder: "Année",
+    allowClear: true,
+  });
+
+  $(".js-year-basic-2").select2({
+    placeholder: "Année",
+    allowClear: true,
+  });
 
   /* $("#orderName").on("click", ".select-field", (e) => {
     e.preventDefault();
