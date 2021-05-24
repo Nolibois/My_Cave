@@ -21,6 +21,7 @@ function index()
   require 'view/homeView.php';
 }
 
+
 ///////////////////////// CONNECT USER ///////////////////////////
 function formConnect()
 {
@@ -32,6 +33,7 @@ function connectUser($email)
   $result = getUserInfos($email);
   return $result;
 }
+
 
 ///////////////////////// DISCONNECT USER ////////////////////////
 
@@ -69,6 +71,15 @@ function listBottles($action, $order = NULL, $column = NULL)
 
     require 'view/manageCave.php';
   }
+}
+
+
+//////////////////////// CREATE BOTTLE ///////////////////////
+function addBottle($newBottle)
+{
+  createBottle($newBottle);
+
+  require 'view/manageCave.php';
 }
 
 

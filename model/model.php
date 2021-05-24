@@ -35,6 +35,17 @@ function getListBottles($order = " ", $column = " ")
   return $result;
 }
 
+
+///////// CREATE Bottle
+function createBottle($newBottle)
+{
+  $bdd = dbConnect();
+
+  $result = $bdd->prepare("INSERT INTO bottle (name, year, grapes, country, region, description) VALUES(:name, :year, :grapes, :country, :region, :description)");
+
+  $bdd->exec($newBottle);
+}
+
 ///////// UPDATE existing Bottle
 function updateBottle($arrayBottle)
 {
@@ -46,3 +57,9 @@ function updateBottle($arrayBottle)
 
   $req->closeCursor();
 }
+
+
+////////// DELETE
+
+// Know number lines delete:
+//$count = $bdd->rowCount();

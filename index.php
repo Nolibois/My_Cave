@@ -11,12 +11,12 @@ $errorConnect = [];
 /////////////////////// ACTIONS ///////////////////////////////////
 if (isset($_GET['action'])) {
 
-  // Ask to go page Connection
+  /////////////// Go to page Connection //////////////
   if ($_GET['action'] == 'formConnect') {
     if (!isset($_POST['btn-connect'])) {
       formConnect();
 
-      // Check connection User
+      ////////////// Check connection User //////////////
     } else {
 
       if (empty($_POST['email']) || empty($_POST['pass'])) {
@@ -25,7 +25,7 @@ if (isset($_GET['action'])) {
       } else {
 
         // Check Email
-        if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
+        if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == false) {
 
           array_push($msgError, "Votre email doit correspondre à l'exemple suivant: chateau@pinot.com");
         } else {
@@ -44,6 +44,8 @@ if (isset($_GET['action'])) {
             $_SESSION['admin'] = $infosUser['admin'];
 
             $result->closeCursor();
+
+            index();
           } else {
             array_push($msgError, "Votre email ou mot de passe n'est pas valide.");
           }
@@ -52,15 +54,15 @@ if (isset($_GET['action'])) {
     }
 
 
-    // Ask for Disconnection
+    /////////////// Ask for Disconnection ///////////////
   } elseif ($_GET['action'] == 'disconnect') {
     disconnectUser();
 
-    // List bottles
+    ///////////////// List bottles //////////////////////
   } elseif ($_GET['action'] == 'bottles') {
     listBottles($_GET['action']);
 
-    // List and manage Bottles
+    ////////////// List and manage Bottles ////////////
   } elseif (($_GET['action'] == "manageCave") && ($_SESSION['admin'] == 1)) {
 
     if (isset($_GET['set']) && !isset($_POST['btn-update-bottle']) && !isset($_GET['order'])) {
@@ -98,7 +100,7 @@ if (isset($_GET['action'])) {
       }
 
 
-      /////// Send to UPDATE settings bottle /////
+      // UPDATE settings bottle
     } elseif (isset($_GET['set']) && isset($_POST['btn-update-bottle'])) {
 
       // Init an array to get infos
@@ -112,7 +114,7 @@ if (isset($_GET['action'])) {
         array_push($msgError, 'L\identifiant de la bouteille ne correspond pas. Sélectionner un autre vin.');
       }
 
-      // Check name length and secure data
+      // Check NAME length and secure data
       if (isset($_POST['name']) && !empty($_POST['name'])) {
         if (strlen($_POST['name']) >= 5 && strlen($_POST['name']) <= 50) {
           $name = htmlspecialchars(strip_tags($_POST['name']));
@@ -122,10 +124,9 @@ if (isset($_GET['action'])) {
         }
       } else {
         array_push($msgError, 'N\'oubliez pas de renseigner le nom de votre vin !');
-        // array_push($msgError, 'N\'oubliez pas de renseigner le nom de votre vin !');
       }
 
-      // Check year length and secure data
+      // Check YEAR length and secure data
       if (isset($_POST['yearUpdate']) && !empty($_POST['yearUpdate'][0])) {
         if (is_numeric($_POST['yearUpdate'][0]) && ($_POST['yearUpdate'][0] >= 1900) && ($_POST['yearUpdate'][0] <= date("Y"))) {
           $year = htmlspecialchars(strip_tags($_POST['yearUpdate'][0]));
@@ -138,7 +139,7 @@ if (isset($_GET['action'])) {
         array_push($msgError, 'Il manque l\'année.');
       }
 
-      // Check grapes and secure data(s)
+      // Check GRAPES and secure data(s)
       if (isset($_POST['id_grapesUpdate_multiple'])) {
         $grapes = "";
         foreach ($_POST['id_grapesUpdate_multiple'] as $value) {
@@ -150,7 +151,7 @@ if (isset($_GET['action'])) {
         array_push($msgError, 'Choisissez un cépage au minimum');
       }
 
-      // Check country and secure data
+      // Check COUNTRY and secure data
       if (isset($_POST['country']) && !empty($_POST['country'])) {
         if (strlen($_POST['country']) >= 5 && strlen($_POST['country']) <= 50) {
           $country = htmlspecialchars(strip_tags($_POST['country']));
@@ -163,7 +164,7 @@ if (isset($_GET['action'])) {
         array_push($msgError, 'Veuillez remplir le pays d\'origine de la bouteille.');
       }
 
-      // Check region and secure data
+      // Check REGION and secure data
       if (isset($_POST['region']) && !empty($_POST['region'])) {
         if (strlen($_POST['region']) >= 5 && strlen($_POST['region']) <= 50) {
           $region = htmlspecialchars(strip_tags($_POST['region']));
@@ -177,7 +178,7 @@ if (isset($_GET['action'])) {
       }
 
 
-      // Check message and secure data
+      // Check MESSAGE and secure data
       if (isset($_POST['description']) && !empty($_POST['description'])) {
         $description = nl2br(htmlspecialchars(strip_tags($_POST['description'])));
 
@@ -189,12 +190,9 @@ if (isset($_GET['action'])) {
       // List infos to Update into an array
       if (count($newSettings) == 7) {
 
-        var_dump($newSettings);
-        die;
-
         setBottle($newSettings);
       } else {
-        # code...
+        array_push($msgError, 'Le nombre de champs à renseigner ne correspond pas.');
       }
 
 
@@ -202,11 +200,20 @@ if (isset($_GET['action'])) {
     } else {
       listBottles($_GET['action']);
     }
+
+    // CREATE a new bottle
+  } elseif ((isset($_GET['action']) == 'create') && (($_SESSION['admin']) == 1)) {
+    if (isset($_POST['btn-create'])) {
+      echo 'OK';
+    } else {
+      echo 'NO';
+    }
   }
 } else {
   index();
 }
 
+// Errors Messages
 if (!empty($msgError)) {
   displayError($msgError);
 }
