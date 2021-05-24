@@ -42,7 +42,7 @@ $(document).ready(function () {
     allowClear: true,
   });
 
-  // For Settings Form
+  /* // For Settings Form
   $(".js-grapes-basic-multiple-2").select2({
     placeholder: "Choix des cépages",
     multiple: "multiple",
@@ -54,7 +54,7 @@ $(document).ready(function () {
     placeholder: "Choix des cépages",
     multiple: "multiple",
     allowClear: true,
-  });
+  }); */
 
   ///////////////// Year ////////////////////
 
@@ -77,10 +77,10 @@ $(document).ready(function () {
     allowClear: true,
   });
 
-  $(".js-year-basic-2").select2({
+  /* $(".js-year-basic-2").select2({
     placeholder: "Année",
     allowClear: true,
-  });
+  }); */
 
   /* $("#orderName").on("click", ".select-field", (e) => {
     e.preventDefault();
