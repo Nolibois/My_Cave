@@ -13,7 +13,7 @@
     } else {
       $connected = "<li><a href='index.php'>Accueil</a></li>
       <li><a href='index.php?action=bottles'>Bouteilles</a></li>
-      <li><a href='index.php?action=formconnect'>Connexion</a></li>";
+      <li><a href='index.php?action=formConnect'>Connexion</a></li>";
     }
     ?>
     <ul>

@@ -2,16 +2,17 @@
 require 'model/model.php';
 
 ///////////// Read Messages Error ///////////////
-/* function msgerrors($listErrors)
+function displayError($msgError)
 {
-  foreach ($listErrors as $value) {
-?>
-    <p>
-      <?= $value; ?>
-    </p>
-<?php
+  foreach ($msgError as $value) {
+    echo '- ' . $value . '<br>';
   }
-} */
+?>
+  <div>
+    <a href="index?php">Retour à l'accueil</a>
+  </div>
+<?php
+}
 
 
 //////////// Home Page /////////////////////////////////
@@ -52,7 +53,7 @@ function listBottles($action, $order = NULL, $column = NULL)
   $listBottles = $result->fetchAll();
   $result->closeCursor();
 
-  //// Redirection
+  //// Redirect
   if ($action == 'bottles') {
     require 'view/listBottles.php';
   } elseif ($action == 'manageCave') {

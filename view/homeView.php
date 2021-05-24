@@ -14,7 +14,7 @@ $year = '2009';
 
 <section id="presentation">
   <h1>My Cave</h1>
-  <p>Ce site permet de visualiser une liste de bouteilles mais également de gérer la modification, l'ajout et l'effacement d'articles de la cave.</p>
+  <p>Ce site permet de visualiser une liste de bouteilles mais également de gérer la modification, l'ajout et l'effacement d'articles de la cave une fois connecté en tant qu'administrateur.</p>
 </section>
 <section id="hightlight">
   <div>
