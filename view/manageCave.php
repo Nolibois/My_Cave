@@ -22,27 +22,34 @@ ob_start();
 
 <h2>Ajouter</h2>
 
-<form action="index.php?action=create" method="post">
+<form action="index.php?action=create" method="post" enctype="multipart/form-data">
+  <div>
+    <label for="picture">Photo de la bouteille</label>
+    <input type="file" name="picture" id="picture">
+  </div>
   <div>
     <label for="nameCreate ">Nom du cru</label>
-    <input type="text" name="nameCreate" id="nameCreate">
+    <input type="text" name="name" id="nameCreate">
   </div>
   <div>
     <label for="yearCreate">Millésime</label>
-    <select class="js-year-basic js-year-data-array js-states form-control" id="yearCreate" name="yearCreate[]"></select>
+    <select class="js-year-basic js-year-data-array js-states form-control" id="yearCreate" name="year[]"></select>
   </div>
   <div>
     <label for="id_grapesCreate_multiple">Cépages</label>
-    <select class="js-grapes-basic-multiple js-grapes-data-array js-states form-control" id="id_grapesCreate_multiple" name="id_createGrapes_multiple[]" multiple="multiple">
+    <select class="js-grapes-basic-multiple js-grapes-data-array js-states form-control" id="id_grapesCreate_multiple" name="id_grapes_multiple[]" multiple="multiple">
     </select>
   </div>
   <div>
     <label for="countryCreate">Pays</label>
-    <input type="text" name="countryCreate" id="countryCreate">
+    <input type="text" name="country" id="countryCreate">
   </div>
   <div>
     <label for="regionCreate">Région</label>
-    <input type="text" name="regionCreate" id="regionCreate">
+    <input type="text" name="region" id="regionCreate">
+  </div>
+  <div>
+    <textarea name="description" id="description"></textarea>
   </div>
   <div>
     <input type="submit" name="btn-create" value="Ajouter">

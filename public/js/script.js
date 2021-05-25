@@ -29,6 +29,10 @@ $(document).ready(function () {
       id: "Sauvignon Blanc",
       text: "Sauvignon Blanc",
     },
+    {
+      id: "Viognier",
+      text: "Viognier",
+    },
   ];
 
   $(".js-grapes-data-array").select2({

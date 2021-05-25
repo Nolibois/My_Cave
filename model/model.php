@@ -41,9 +41,9 @@ function createBottle($newBottle)
 {
   $bdd = dbConnect();
 
-  $result = $bdd->prepare("INSERT INTO bottle (name, year, grapes, country, region, description) VALUES(:name, :year, :grapes, :country, :region, :description)");
+  $result = $bdd->prepare("INSERT INTO bottles (name, year, grapes, country, region, description, picture) VALUES(:name, :year, :grapes, :country, :region, :description, :picture)");
 
-  $bdd->exec($newBottle);
+  $result->execute($newBottle);
 }
 
 ///////// UPDATE existing Bottle

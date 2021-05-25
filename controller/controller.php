@@ -77,7 +77,11 @@ function listBottles($action, $order = NULL, $column = NULL)
 //////////////////////// CREATE BOTTLE ///////////////////////
 function addBottle($newBottle)
 {
+
   createBottle($newBottle);
+  $result = getListBottles();
+  $listBottles = $result->fetchAll();
+  $result->closeCursor();
 
   require 'view/manageCave.php';
 }
