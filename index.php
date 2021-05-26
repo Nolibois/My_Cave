@@ -1,6 +1,8 @@
 <?php
 session_start();
+
 require 'controller/controller.php';
+require 'view/traitment/uploadFile.php';
 // require 'view/errorView.php';
 
 
@@ -100,8 +102,9 @@ if (isset($_GET['action'])) {
       }
 
 
-      // UPDATE settings bottle
+      ////// UPDATE settings bottle
     } elseif (isset($_GET['set']) && isset($_POST['btn-update-bottle'])) {
+
 
       // Init an array to get infos
       $newSettings = [];
@@ -112,6 +115,19 @@ if (isset($_GET['action'])) {
         $newSettings['id'] = $id;
       } else {
         array_push($msgError, 'L\identifiant de la bouteille ne correspond pas. Sélectionner un autre vin.');
+      }
+
+      // Check PICTURE
+      if (isset($_FILES['picture'])) {
+        $checkFile = uploadFile($_FILES['picture']);
+
+        if (is_string($checkFile)) {
+          $picture = $checkFile;
+        } elseif (is_array($checkFile)) {
+          foreach ($checkFile as $msg) {
+            array_push($msgError, $msg);
+          }
+        }
       }
 
       // Check NAME length and secure data
@@ -177,7 +193,6 @@ if (isset($_GET['action'])) {
         array_push($msgError, 'Veuillez remplir le région de production du vin.');
       }
 
-
       // Check MESSAGE and secure data
       if (isset($_POST['description']) && !empty($_POST['description'])) {
         $description = nl2br(htmlspecialchars(strip_tags($_POST['description'])));
@@ -188,9 +203,13 @@ if (isset($_GET['action'])) {
       }
 
       // List infos to Update into an array
-      if (count($newSettings) == 7) {
+      if (count($newSettings) == 7 && !isset($picture)) {
 
         setBottle($newSettings);
+      } elseif (count($newSettings) == 7 && isset($picture)) {
+        move_uploaded_file($_FILES['picture']['tmp_name'], "public/uploads/" . $picture);
+
+        setBottle($newSettings, $picture);
       } else {
         array_push($msgError, 'Le nombre de champs à renseigner ne correspond pas.');
       }
@@ -201,7 +220,9 @@ if (isset($_GET['action'])) {
       listBottles($_GET['action']);
     }
 
-    // CREATE a new bottle
+
+
+    ///// CREATE a new bottle
   } elseif ((isset($_GET['action']) == 'create') && (($_SESSION['admin']) == 1)) {
     if (isset($_POST['btn-create'])) {
 
@@ -283,75 +304,10 @@ if (isset($_GET['action'])) {
 
 
       // Check picture
-      if (isset($_FILES['picture']) && !empty($_FILES['picture']) && ($_FILES['picture']['error'] != 4)) {
-
-        // Check Errors
-        switch ($_FILES['picture']['error']) {
-          case '0':
-            $fileError = true;
-            break;
-
-          case '3':
-            array_push($msgError, 'Le fichier image a été téléchargé SEULEMENT en partie. Il risuqe de ne pas s\'afficher correctement.');
-            break;
-
-          case '7':
-            array_push($msgError, 'Problème à l\'enregistrment sur le serveur. Réessayé ou recommencer ultérieurement. Veuillez nous excuser pour ce désagrément.');
-            break;
-
-          default:
-
-            break;
-        }
-
-        // Check size
-        if ($_FILES['picture']['size'] <= 1000000) {
-          $fileSize = true;
-        } else {
-          array_push($msgError, 'Votre image doit faire moins de 1Mo.');
-        }
-
-        // Check extension
-        $extChecked = "";
-        $infosFile = pathinfo($_FILES['picture']['name']);
-        $extension = $infosFile['extension'];
-        $extAllowed = ["jpg", "jpeg", "png"];
-        if (in_array($extension, $extAllowed)) {
-          $extChecked = true;
-        } else {
-          $extChecked = false;
-          array_push($msgError, 'Erreur: Le type d\'image accepté est JPG, JPEG, et PNG.');
-        }
-
-        // Check exist destination folder
-        $folderExist = "";
-        $pathFolderImg = "public/img/";
-        if (is_dir($pathFolderImg)) {
-          $folderExist = true;
-        } else {
-          mkdir($pathFolderImg, 0733, true);
-          $folderExist = true;
-
-          if (!mkdir($pathFolderImg, 0733, true)) {
-            $folderExist = false;
-            array_push($msgError, 'Erreur: Le dossier de destination ne peut pas être créé. Contactez l\'administrateur.');
-          }
-        }
-
-        // Hash file name before to save
-        $nameFile = strstr($infosFile['basename'], "." . $extension, true);
-        $hashName = sha1($nameFile);
-
-        // Upload
-        if ($fileError && $fileSize && $extChecked && $folderExist) {
-          $newSettings['picture'] = $hashName . "." . $extension;
-        } else {
-          array_push($msgError, 'Tous les éléments n\'ont pas passé la vérification. Rechargez le fichier ou essayez-en un autre.');
-        }
-      } else {
-        array_push($msgError, 'Le fichier image est manquant, cliquez sur "Choisir un fichier".');
+      $checkFile = uploadFile($_FILES['picture']);
+      if ($checkFile) {
+        $newSettings['picture'] = $scheckFile;
       }
-
 
       // List infos to Create into an array
       if (count($newSettings) == 7) {
@@ -368,5 +324,6 @@ if (isset($_GET['action'])) {
 
 // Errors Messages
 if (!empty($msgError)) {
+
   displayError($msgError);
 }

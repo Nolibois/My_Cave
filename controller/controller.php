@@ -9,7 +9,7 @@ function displayError($msgError)
   }
 ?>
   <div>
-    <a href="index?php">Retour à l'accueil</a>
+    <a href="index?">Retour à l'accueil</a>
   </div>
 <?php
 }
@@ -83,17 +83,18 @@ function addBottle($newBottle)
   $listBottles = $result->fetchAll();
   $result->closeCursor();
 
-  require 'view/manageCave.php';
+  // require 'view/manageCave.php';
+  header('location: index.php?action=manageCave');
 }
 
 
 //////////////////////// SET BOTTLE /////////////////////////
 
 // Set bottle
-function setBottle($arrayBottle)
+function setBottle($arrayBottle, $picture = "")
 {
 
-  updateBottle($arrayBottle);
+  updateBottle($arrayBottle, $picture);
   unset($_GET['set']);
   listBottles("manageCave");
 }

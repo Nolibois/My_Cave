@@ -1,6 +1,6 @@
 <?php $titlePage = 'Liste des bouteilles de la Cave';
 
-$pathImg = "public/img/";
+$pathImg = "public/uploads/";
 
 ob_start();
 ?>

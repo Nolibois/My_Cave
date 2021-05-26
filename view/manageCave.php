@@ -1,6 +1,6 @@
 <?php $titlePage = "Gestion de ma Cave";
 
-$pathImg = "public/img/";
+$pathImg = "public/uploads/";
 
 if (!isset($order)) {
   $order = "no";
@@ -24,8 +24,8 @@ ob_start();
 
 <form action="index.php?action=create" method="post" enctype="multipart/form-data">
   <div>
-    <label for="picture">Photo de la bouteille</label>
-    <input type="file" name="picture" id="picture">
+    <label for="pictureCreate">Photo de la bouteille</label>
+    <input type="file" name="picture" id="pictureCreate">
   </div>
   <div>
     <label for="nameCreate ">Nom du cru</label>
@@ -49,7 +49,7 @@ ob_start();
     <input type="text" name="region" id="regionCreate">
   </div>
   <div>
-    <textarea name="description" id="description"></textarea>
+    <textarea name="description" id="descriptionCreate"></textarea>
   </div>
   <div>
     <input type="submit" name="btn-create" value="Ajouter">
@@ -145,14 +145,16 @@ ob_start();
             <h2>Modification</h2>
           </td>
           <td colspan="5">
-            <h3>ou Annuler <a href="index.php?action=manageCave"><i class="far fa-times-circle"></i></a></h3>
+            <h3>ou Annuler la modification<a href="index.php?action=manageCave"><i class="far fa-times-circle"></i></a></h3>
           </td>
 
         </tr>
-        <form action="index.php?action=manageCave&set=<?= $value['id']; ?>" method="post">
+        <form action="index.php?action=manageCave&set=<?= $value['id']; ?>" method="post" enctype="multipart/form-data">
           <tr>
             <td>
-              <img src="" alt="Image à changer">
+              <div>
+                <input type="file" name="picture" id="pictureUpdate">
+              </div>
             </td>
             <td>
               <div>
@@ -183,12 +185,17 @@ ob_start();
             </td>
             <td>
               <div>
-                <textarea name="description" id="description"><?= $value['description']; ?></textarea>
+                <textarea name="description" id="descriptionUpadte"><?= $value['description']; ?></textarea>
               </div>
             </td>
-            <td colspan="3">
+            <td colspan="2">
               <div>
-                <input type="submit" name="btn-update-bottle" value="Envoyer">
+                <input type="submit" name="btn-update-bottle" value="MODIFIER">
+              </div>
+            </td>
+            <td colspan="1">
+              <div>
+                <input type="submit" name="btn-delete-bottle" value="Effacer la bouteille">
               </div>
             </td>
         </form>

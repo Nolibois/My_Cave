@@ -13,8 +13,10 @@ function getUserInfos($email)
 }
 
 ///////// Get list bottles 
-function getListBottles($order = " ", $column = " ")
+function getListBottles($order = "", $column = "")
 {
+  $orderBy = "";
+
   // Options to sort ASC or DESC
   if (!empty($order) && !empty($column)) {
 
@@ -24,8 +26,6 @@ function getListBottles($order = " ", $column = " ")
     } else {
       $orderBy = "ORDER BY " . $column . " " . $order;
     }
-  } else {
-    $orderBy = " ";
   }
 
   $bdd = dbConnect();
@@ -44,14 +44,30 @@ function createBottle($newBottle)
   $result = $bdd->prepare("INSERT INTO bottles (name, year, grapes, country, region, description, picture) VALUES(:name, :year, :grapes, :country, :region, :description, :picture)");
 
   $result->execute($newBottle);
+
+  $result->closeCursor();
 }
 
 ///////// UPDATE existing Bottle
-function updateBottle($arrayBottle)
+function updateBottle($arrayBottle, $picture)
 {
   $bdd = dbConnect();
 
-  $req = $bdd->prepare('UPDATE bottles SET name = :name, year = :year, grapes = :grapes, country = :country, region = :region, description = :description, /* picture = :picture, */ date_last_setting = NOW() WHERE id = :id');
+  $namePicture = "";
+
+  if (!empty($picture)) {
+    $arrayBottle['picture'] = $picture;
+    $namePicture = "picture = :picture,";
+  } else {
+    $picture = "";
+  }
+
+  /* var_dump($picture);
+  var_dump($arrayBottle);
+  var_dump($namePicture);
+  die; */
+
+  $req = $bdd->prepare("UPDATE bottles SET name = :name, year = :year, grapes = :grapes, country = :country, region = :region, description = :description, $namePicture date_last_setting = NOW() WHERE id = :id");
 
   $req->execute($arrayBottle);
 
