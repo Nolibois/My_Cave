@@ -8,6 +8,7 @@ require 'view/traitment/uploadFile.php';
 
 $msgError = [];
 $errorConnect = [];
+$pathFolderImg = "public/uploads/";
 
 
 /////////////////////// ACTIONS ///////////////////////////////////
@@ -214,11 +215,18 @@ if (isset($_GET['action'])) {
         array_push($msgError, 'Le nombre de champs à renseigner ne correspond pas.');
       }
 
+      // DELETE a Bottle
+    } elseif (isset($_GET['set']) && isset($_POST['btn-delete-bottle'])) {
+      echo 'delete';
+      die;
+
+
 
       // Display list bottles and manage links
     } else {
       listBottles($_GET['action']);
     }
+
 
 
 
@@ -306,12 +314,12 @@ if (isset($_GET['action'])) {
       // Check picture
       $checkFile = uploadFile($_FILES['picture']);
       if ($checkFile) {
-        $newSettings['picture'] = $scheckFile;
+        $newSettings['picture'] = $checkFile;
       }
 
       // List infos to Create into an array
       if (count($newSettings) == 7) {
-        move_uploaded_file($_FILES['picture']['tmp_name'], $pathFolderImg . $hashName . "." . $extension);
+        move_uploaded_file($_FILES['picture']['tmp_name'], $pathFolderImg . $newSettings['picture']);
         addBottle($newSettings);
       } else {
         array_push($msgError, 'Le nombre de champs à renseigner ne correspond pas.');
