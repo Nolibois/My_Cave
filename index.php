@@ -68,9 +68,10 @@ if (isset($_GET['action'])) {
     ////////////// List and manage Bottles ////////////
   } elseif (($_GET['action'] == "manageCave") && ($_SESSION['admin'] == 1)) {
 
-    if (isset($_GET['set']) && !isset($_POST['btn-update-bottle']) && !isset($_GET['order'])) {
 
-      // Display list bottles and form for settings
+    if (isset($_GET['set']) && !isset($_POST['btn-update-bottle']) && !isset($_GET['order']) && !isset($_POST['btn-delete-bottle'])) {
+
+      // Display list bottles AND form for settings
       if (is_numeric($_GET['set'])) {
         listBottles($_GET['action']);
       } else {
@@ -216,10 +217,23 @@ if (isset($_GET['action'])) {
       }
 
       // DELETE a Bottle
-    } elseif (isset($_GET['set']) && isset($_POST['btn-delete-bottle'])) {
-      echo 'delete';
-      die;
+    } elseif (isset($_GET['set']) && isset($_GET['picture']) && isset($_POST['btn-delete-bottle'])) {
 
+      // Check ID
+      if (is_numeric($_GET['set'])) {
+        $id['id'] = $_GET['set'];
+      } else {
+        array_push($msgError, 'L\'identifiant de la bouteille à modifier ne correspond pas.');
+      }
+
+
+      // Check picture name
+      if (isset($id['id']) && file_exists($pathFolderImg . $_GET['picture'])) {
+        unlink($pathFolderImg . $_GET['picture']);
+        removeBottle($id);
+      } else {
+        array_push($msgError, 'Le nom du fichier image n\'existe pas.');
+      }
 
 
       // Display list bottles and manage links

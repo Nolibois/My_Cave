@@ -98,3 +98,20 @@ function setBottle($arrayBottle, $picture = "")
   unset($_GET['set']);
   listBottles("manageCave");
 }
+
+
+////////////////////////  DELETE /////////////////////////////////
+
+//DELETE
+
+function removeBottle($id)
+{
+  $rowsDeleted = deleteBottle($id);
+
+
+  if ($rowsDeleted > 0) {
+    listBottles("manageCave");
+  } else {
+    array_push($msgError, 'Une erreur c\'est produite lors de la demande d\'effacement de la bouteille.');
+  }
+}

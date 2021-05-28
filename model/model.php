@@ -62,11 +62,6 @@ function updateBottle($arrayBottle, $picture)
     $picture = "";
   }
 
-  /* var_dump($picture);
-  var_dump($arrayBottle);
-  var_dump($namePicture);
-  die; */
-
   $req = $bdd->prepare("UPDATE bottles SET name = :name, year = :year, grapes = :grapes, country = :country, region = :region, description = :description, $namePicture date_last_setting = NOW() WHERE id = :id");
 
   $req->execute($arrayBottle);
@@ -76,6 +71,14 @@ function updateBottle($arrayBottle, $picture)
 
 
 ////////// DELETE
+function deleteBottle($id)
+{
+  $bdd = dbConnect();
 
-// Know number lines delete:
-//$count = $bdd->rowCount();
+  $req = $bdd->prepare("DELETE FROM bottles WHERE id = :id");
+  $req->execute($id);
+
+  // Know number lines delete:
+  $count = $req->rowCount();
+  return $count;
+}

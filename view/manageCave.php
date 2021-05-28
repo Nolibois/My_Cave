@@ -57,7 +57,7 @@ ob_start();
 </form>
 
 
-<h2>Filtrer</h2>
+<!-- <h2>Filtrer</h2>
 
 <form action="index.php?action=filters" method="post">
   <div>
@@ -85,9 +85,10 @@ ob_start();
     <input type="submit" name="btn-filters" value="Filtrer">
   </div>
 </form>
-
+ -->
 
 <h2>Liste des bouteilles à MODIFIER</h2>
+<p id="messages"></p>
 
 <table>
   <thead id="orderName">
@@ -149,7 +150,7 @@ ob_start();
           </td>
 
         </tr>
-        <form action="index.php?action=manageCave&set=<?= $value['id']; ?>" method="post" enctype="multipart/form-data">
+        <form id="formUpdate" action="index.php?action=manageCave&set=<?= $value['id']; ?>&picture=<?= $value['picture']; ?>" method="post" enctype="multipart/form-data">
           <tr>
             <td>
               <div>
@@ -195,9 +196,18 @@ ob_start();
             </td>
             <td colspan="1">
               <div>
-                <input type="submit" name="btn-delete-bottle" value="Effacer la bouteille">
+                <button id="btn-del">SUPPRIMER</button>
               </div>
             </td>
+            <div id="myModal" class="modal">
+              <div class="modal-content">
+                <p>Êtes-vous bien certains de vouloir SUPPRIMER cette bouteill?</p>
+                <div class="btn-modal-delete">
+                  <input type="submit" id="delete" name="btn-delete-bottle" value="SUPPRIMER">
+                  <input type="submit" id="close" name="btn-close-bottle" value="NON">
+                </div>
+              </div>
+            </div>
         </form>
         </tr>
     <?php

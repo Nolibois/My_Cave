@@ -81,28 +81,25 @@ $(document).ready(function () {
     allowClear: true,
   });
 
-  /* $(".js-year-basic-2").select2({
-    placeholder: "Année",
-    allowClear: true,
-  }); */
-
-  /* $("#orderName").on("click", ".select-field", (e) => {
+  //////////////// Delete bottle confirmation /////////////
+  $("#btn-del").on("click", (e) => {
     e.preventDefault();
 
-    $.ajax({
-      url: "index.php",
-      type: "GET",
-      data: "action=manageCave&order=" + order + "&column=name",
-      dataType: "json",
+    $("#myModal").css("display", "block");
+    const textReturn = "";
 
-      success: function (jsonReturn, status) {
-        console.log(jsonReturn);
-        alert("bien joué! ");
-      },
+    let dataUri = $("#formUpdate").attr("action");
+    console.log("URL: " + dataUri);
 
-      error: function (result, status, error) {
-        alert(error);
-      },
+    $("#close").on("click", (e) => {
+      $("#myModal").css("display", "none");
     });
-  }); */
+
+    $("#delete").on("click", (e) => {
+      $("#myModal").css("display", "none"),
+        $.get(dataUri, dataUri, textReturn, "text");
+    });
+
+    console.log(textReturn);
+  });
 });
