@@ -31,6 +31,8 @@ function formConnect()
 function connectUser($email)
 {
   $result = getUserInfos($email);
+  header('location: index.php');
+
   return $result;
 }
 

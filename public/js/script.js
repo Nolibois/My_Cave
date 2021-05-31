@@ -102,4 +102,12 @@ $(document).ready(function () {
 
     console.log(textReturn);
   });
+
+  /////////////// SLICK Carousel ////////////////
+  $(".single-item").slick();
+
+  ///////////// Display one bottle selected from the list ///////////////////////////
+  $(".card-bottle").on("click", (e) => {
+    // AJAX
+  });
 });

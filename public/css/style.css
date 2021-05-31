@@ -1,24 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel&family=Lovers+Quarrel&display=swap");
+.listBottles {
+  padding: 7vh 5%;
+  background: url("");
+  background-size: contain;
+}
+.listBottles h1 {
+  background: #0d0d0d;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+.listBottles .card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+}
+.listBottles .card-bottle {
+  padding: 1.5vw;
+  min-width: 250px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+.listBottles .card-bottle h2 {
+  color: #f2aa6b;
+}
+.listBottles .card-bottle:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+}
+
+main {
+  padding: 7vh 5%;
+  box-sizing: border-box;
+  width: 100%;
+}
+main h2 {
+  margin-bottom: 20px;
+}
+
+#instructions {
+  width: 100%;
+}
+#instructions h1 {
+  background: #0d0d0d;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+#create {
+  box-sizing: border-box;
+  margin: 5vh auto;
+  padding: 3vh 3vw;
+  width: 60vw;
+  height: 65vh;
+  border: 2px solid rgba(140, 140, 140, 0.4);
+  border-radius: 8px;
+}
+#create form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: repeat(8);
+  grid-template-areas: "pict-lab pict-inp" "name-lab name-inp" "year-lab year-inp" "grap-lab grap-inp" "cy-lab cy-inp" "rgn-lab rgn-inp" "desc-lab desc-inp" "btn btn";
+  grid-gap: 10px;
+  align-items: center;
+}
+#create form label {
+  justify-self: end;
+  padding-right: 15px;
+}
+#create form input {
+  justify-self: start;
+}
+#create form .picture-row label {
+  grid-area: pict-lab;
+}
+#create form .picture-row input {
+  grid-area: pict-inp;
+}
+#create form .name-row label {
+  grid-area: name-lab;
+}
+#create form .name-row input {
+  grid-area: name-inp;
+}
+#create form .year-row label {
+  grid-area: year-lab;
+}
+#create form .year-row input {
+  grid-area: year-inp;
+}
+#create form .grapes-row label {
+  grid-area: grap-lab;
+}
+#create form .grapes-row input {
+  grid-area: grap-inp;
+}
+#create form .country-row label {
+  grid-area: cy-lab;
+}
+#create form .country-row input {
+  grid-area: cy-inp;
+}
+#create form .region-row label {
+  grid-area: rgn-lab;
+}
+#create form .region-row input {
+  grid-area: rgn-inp;
+}
+#create form .description-row label {
+  grid-area: desc-lab;
+}
+#create form .description-row textarea {
+  grid-area: desc-inp;
+  resize: none;
+}
+#create form input[type=submit] {
+  grid-area: btn;
+  justify-self: center;
+  width: 70px;
+  height: 30px;
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  width: min-content;
+  font-family: "Cinzel", serif;
+  color: #0d0d0d;
+}
+body h1 {
+  font-family: "Lovers Quarrel", cursive;
+  font-size: 3rem;
+  font-weight: normal;
+  color: white;
+}
+body h2 {
+  font-size: 1.2rem;
+}
+body li {
+  list-style-type: none;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+header #nav-container {
+  display: flex;
+  justify-content: space-around;
+  height: 100px;
+  width: 100%;
+  background: url("../img/margaux_bg_tonneau.jpg") center/cover;
+}
+header #nav-container #logo-nav {
+  height: 100%;
 }
 
 header,
 footer {
-  height: 100px;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+header #logo-nav a,
+header #logo-footer a,
+footer #logo-nav a,
+footer #logo-footer a {
+  font-family: "Lovers Quarrel", cursive;
+  font-size: 4rem;
+  color: #f2aa6b;
+  text-decoration: none;
 }
 header a,
 footer a {
@@ -29,7 +202,12 @@ footer a {
 }
 
 nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 70%;
+  height: 100%;
+  color: white;
 }
 nav ul {
   display: flex;
@@ -41,16 +219,34 @@ nav ul li {
 }
 nav ul li a {
   text-decoration: none;
+  color: white;
 }
 
 #presentation {
-  width: 100vw;
-  height: 20vh;
+  background: #0d0d0d;
+  height: 25vh;
   padding: 0 10vw;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  color: white;
+}
+
+#highlight {
+  width: 100%;
+  padding: 3vw;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../img/margaux_chai3.jpg") center/cover;
+  color: white;
+}
+#highlight .carousel {
+  width: 250px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.295);
 }
 
 select {
@@ -62,11 +258,15 @@ select {
   position: fixed;
   left: 0;
   top: 0;
-  background-color: rgba(220, 20, 60, 0.336);
+  background-color: rgba(242, 5, 25, 0.8);
   color: white;
   width: 100%;
   height: 100%;
   z-index: 1;
+}
+
+footer #logo-footer a {
+  font-size: 2.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */

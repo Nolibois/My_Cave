@@ -1,6 +1,8 @@
 <footer>
 
-  <a href=""><img src="public/img/logo.png" alt="logo My Cave footer"></a>
+  <div id="logo-footer">
+    <a href="index.php">My Cave</a>
+  </div>
   <nav>
     <ul>
       <li><a href="">Accueil</a></li>
