@@ -61,69 +61,72 @@ main h2 {
 }
 
 #create {
+  color: white;
   box-sizing: border-box;
   margin: 5vh auto;
   padding: 3vh 3vw;
-  width: 60vw;
-  height: 65vh;
-  border: 2px solid rgba(140, 140, 140, 0.4);
+  width: 50vw;
+  height: 70vh;
   border-radius: 8px;
+  background: url("../img/ardoise.jpg") center/cover no-repeat;
 }
 #create form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   grid-auto-rows: repeat(8);
   grid-template-areas: "pict-lab pict-inp" "name-lab name-inp" "year-lab year-inp" "grap-lab grap-inp" "cy-lab cy-inp" "rgn-lab rgn-inp" "desc-lab desc-inp" "btn btn";
   grid-gap: 10px;
   align-items: center;
 }
+#create form input:not([type=submit]),
+#create form textarea,
+#create form .select2-container--default {
+  background: rgba(255, 255, 255, 0.233) !important;
+}
 #create form label {
-  justify-self: end;
+  justify-self: start;
   padding-right: 15px;
 }
-#create form input {
-  justify-self: start;
-}
-#create form .picture-row label {
+#create form label.picture-row {
   grid-area: pict-lab;
 }
-#create form .picture-row input {
+#create form input.picture-row {
   grid-area: pict-inp;
 }
-#create form .name-row label {
+#create form label.name-row {
   grid-area: name-lab;
 }
-#create form .name-row input {
+#create form input.name-row {
   grid-area: name-inp;
 }
-#create form .year-row label {
+#create form label.year-row {
   grid-area: year-lab;
 }
-#create form .year-row input {
+#create form input.year-row {
   grid-area: year-inp;
 }
-#create form .grapes-row label {
+#create form label.grapes-row {
   grid-area: grap-lab;
 }
-#create form .grapes-row input {
+#create form input.grapes-row {
   grid-area: grap-inp;
 }
-#create form .country-row label {
+#create form label.country-row {
   grid-area: cy-lab;
 }
-#create form .country-row input {
+#create form input.country-row {
   grid-area: cy-inp;
 }
-#create form .region-row label {
+#create form label.region-row {
   grid-area: rgn-lab;
 }
-#create form .region-row input {
+#create form input.region-row {
   grid-area: rgn-inp;
 }
-#create form .description-row label {
+#create form label.description-row {
   grid-area: desc-lab;
 }
-#create form .description-row textarea {
+#create form textarea.description-row {
   grid-area: desc-inp;
   resize: none;
 }
@@ -160,6 +163,14 @@ body h2 {
 }
 body li {
   list-style-type: none;
+}
+body input {
+  height: 28px;
+}
+body textarea,
+body input {
+  border-radius: 4px;
+  border: 1px solid #8c8c8c;
 }
 
 header {
@@ -249,8 +260,8 @@ nav ul li a {
   background: rgba(255, 255, 255, 0.295);
 }
 
-select {
-  width: 150px;
+.select2-container {
+  width: auto !important;
 }
 
 #myModal {

@@ -27,7 +27,7 @@ ob_start();
     <h2>Ajouter une bouteille</h2>
 
     <form action="index.php?action=create" method="post" enctype="multipart/form-data">
-      <label for="pictureCreate" clas="picture-row">Photo de la bouteille</label>
+      <label for="pictureCreate" class="picture-row">Photo</label>
       <input type="file" name="picture" id="pictureCreate" class="picture-row">
 
       <label for="nameCreate" class="name-row">Nom du cru</label>
