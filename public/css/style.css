@@ -80,7 +80,7 @@ main h2 {
 }
 #create form input:not([type=submit]),
 #create form textarea,
-#create form .select2-container--default {
+#create form .select2-container--single {
   background: rgba(255, 255, 255, 0.233) !important;
 }
 #create form label {
