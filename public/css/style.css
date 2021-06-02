@@ -12,13 +12,17 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
+  box-shadow: 0px 12px 17px -8px #fdfcfc;
+  position: relative;
 }
 .listBottles .card-container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
-  width: 100%;
+  margin: 0 2vw;
+  padding-top: 5vh;
+  background: #8c8c8c;
 }
 .listBottles .card-bottle {
   padding: 1.5vw;
@@ -40,24 +44,35 @@
 }
 
 main {
-  padding: 7vh 5%;
   box-sizing: border-box;
   width: 100%;
 }
-main h2 {
-  margin-bottom: 20px;
-}
-
-#instructions {
-  width: 100%;
-}
-#instructions h1 {
+main h1 {
   background: #0d0d0d;
   height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
+  margin-bottom: 5vh;
+}
+main h2 {
+  font-size: 1.2rem;
+  background: #0d0d0d;
+  height: 10vh;
+  border-radius: 8px;
+  margin-bottom: 5vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0px 12px 17px -8px #fdfcfc;
+  position: relative;
+}
+main a {
+  text-decoration: none;
+  color: #0d0d0d;
 }
 
 #create {
@@ -66,7 +81,6 @@ main h2 {
   margin: 5vh auto;
   padding: 3vh 3vw;
   width: 50vw;
-  height: 70vh;
   border-radius: 8px;
   background: url("../img/ardoise.jpg") center/cover no-repeat;
 }
@@ -80,8 +94,10 @@ main h2 {
 }
 #create form input:not([type=submit]),
 #create form textarea,
-#create form .select2-container--single {
+#create form .select2-container {
   background: rgba(255, 255, 255, 0.233) !important;
+  color: white;
+  padding: 0 10px;
 }
 #create form label {
   justify-self: start;
@@ -137,6 +153,120 @@ main h2 {
   height: 30px;
 }
 
+#update-bottles {
+  background: #8c8c8c;
+  padding: 5vh 5vw;
+}
+#update-bottles .card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+}
+#update-bottles .card-container #form-update-container {
+  box-sizing: border-box;
+  padding: 3vh 3vw;
+  min-width: 250px;
+  width: 20%;
+  height: 680px;
+  border: 2px solid rgba(13, 13, 13, 0.4);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.192);
+}
+#update-bottles .card-container #form-update-container h2 {
+  background: none;
+  height: 5vh;
+  border-radius: 8px;
+  margin-bottom: 2vh;
+}
+#update-bottles .card-container #form-update-container #formUpdate {
+  height: 88%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+}
+#update-bottles .card-container #form-update-container #formUpdate .select2 {
+  width: 100% !important;
+}
+#update-bottles .card-container #form-update-container #formUpdate div {
+  width: 100%;
+}
+#update-bottles .card-container #form-update-container #formUpdate div input:not([type=submit]),
+#update-bottles .card-container #form-update-container #formUpdate div textarea {
+  width: 100%;
+  text-align: center;
+}
+#update-bottles .card-container #form-update-container #formUpdate div input[type=submit] {
+  width: 60%;
+  height: 35px;
+}
+#update-bottles .card-container #form-update-container #formUpdate div #descriptionUpadte {
+  width: auto;
+  border-radius: 5px;
+  height: 200px;
+  resize: none;
+  padding: 10px;
+  text-align: justify;
+}
+#update-bottles .card-container #form-update-container #formUpdate div #btn-del {
+  background: rgba(242, 5, 25, 0.6);
+  height: 25px;
+  padding: 10px 0;
+  border: none;
+  border-radius: 4px;
+}
+#update-bottles .card-bottle {
+  padding: 1.5vw;
+  min-width: 250px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+#update-bottles .card-bottle h2 {
+  color: #f2aa6b;
+}
+#update-bottles .card-bottle .name,
+#update-bottles .card-bottle .year {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: rgba(13, 13, 13, 0.8);
+}
+#update-bottles .card-bottle .description {
+  font-size: 0.9rem;
+  font-style: italic;
+  padding: 10px 0;
+}
+#update-bottles .card-bottle .date {
+  font-size: 0.8rem;
+  color: rgba(13, 13, 13, 0.8);
+}
+#update-bottles .card-bottle .date span {
+  font-weight: bold;
+}
+#update-bottles .card-bottle .btn-select {
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.233);
+  border-radius: 6px;
+  height: 32px;
+  align-content: center;
+}
+#update-bottles .card-bottle .btn-select a {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#update-bottles .card-bottle .btn-select:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -157,9 +287,6 @@ body h1 {
   font-size: 3rem;
   font-weight: normal;
   color: white;
-}
-body h2 {
-  font-size: 1.2rem;
 }
 body li {
   list-style-type: none;
@@ -266,6 +393,8 @@ nav ul li a {
 
 #myModal {
   display: none;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   left: 0;
   top: 0;
@@ -275,9 +404,32 @@ nav ul li a {
   height: 100%;
   z-index: 1;
 }
+#myModal .modal-content {
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 
+footer {
+  background: #0d0d0d;
+  position: relative;
+  height: 80px;
+}
 footer #logo-footer a {
   font-size: 2.5rem;
+}
+footer #scroll-up {
+  color: white;
+  position: fixed;
+  font-size: 3rem;
+  right: 20px;
+  bottom: 50px;
+  cursor: pointer;
+}
+footer #scroll-up:hover {
+  color: rgba(13, 13, 13, 0.7);
 }
 
 /*# sourceMappingURL=style.css.map */

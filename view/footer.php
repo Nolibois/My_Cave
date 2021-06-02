@@ -10,4 +10,8 @@
     </ul>
   </nav>
 
+  <div id="scroll-up">
+    <i class="fas fa-chevron-circle-up"></i>
+  </div>
+
 </footer>

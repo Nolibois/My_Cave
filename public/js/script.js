@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  //// Choice "Grapes"
+  ////////////// Choice "GRAPES"
   let dataGrapes = [
     {
       id: "Merlot",
@@ -46,21 +46,7 @@ $(document).ready(function () {
     allowClear: true,
   });
 
-  /* // For Settings Form
-  $(".js-grapes-basic-multiple-2").select2({
-    placeholder: "Choix des cépages",
-    multiple: "multiple",
-    allowClear: true,
-  });
-
-  // For Create New Bottle Form
-  $(".js-grapes-basic-multiple-3").select2({
-    placeholder: "Choix des cépages",
-    multiple: "multiple",
-    allowClear: true,
-  }); */
-
-  ///////////////// Year ////////////////////
+  ///////////////// Choice YEARS
 
   let dataYear = [];
   let nowDate = new Date();
@@ -85,11 +71,10 @@ $(document).ready(function () {
   $("#btn-del").on("click", (e) => {
     e.preventDefault();
 
-    $("#myModal").css("display", "block");
+    $("#myModal").css("display", "flex");
     const textReturn = "";
 
     let dataUri = $("#formUpdate").attr("action");
-    console.log("URL: " + dataUri);
 
     $("#close").on("click", (e) => {
       $("#myModal").css("display", "none");
@@ -99,8 +84,6 @@ $(document).ready(function () {
       $("#myModal").css("display", "none"),
         $.get(dataUri, dataUri, textReturn, "text");
     });
-
-    console.log(textReturn);
   });
 
   /////////////// SLICK Carousel ////////////////
@@ -109,5 +92,15 @@ $(document).ready(function () {
   ///////////// Display one bottle selected from the list ///////////////////////////
   $(".card-bottle").on("click", (e) => {
     // AJAX
+  });
+
+  /////////////// Scroll Up //////////////////
+  $("#scroll-up").click(function () {
+    $("html, body").animate(
+      {
+        scrollTop: $("#logo-nav").offset().top,
+      },
+      1000
+    );
   });
 });
