@@ -10,7 +10,6 @@ main {
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-    margin-bottom: 5vh;
   }
 
   h2 {
@@ -31,6 +30,16 @@ main {
   a {
     text-decoration: none;
     color: rgba($color-dark, 1);
+  }
+
+  .select2-selection {
+    width: 100% !important;
+    background: none !important;
+    border: none !important;
+  }
+
+  #background {
+    padding-top: 5vh;
   }
 }
 
@@ -142,6 +151,28 @@ main {
   background: rgba($color-greyTech, 1);
   padding: 5vh 5vw;
 
+  #orderBy {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+    fieldset {
+      padding: 3vh;
+      border-radius: 6px;
+      border: 2px solid rgba($color-dark, 0.2);
+
+      legend {
+        font-weight: bold;
+      }
+
+      div:hover {
+        background: rgba(255, 255, 255, 0.192);
+      }
+    }
+  }
+
   .card-container {
     display: flex;
     justify-content: space-around;
@@ -150,20 +181,29 @@ main {
     width: 100%;
 
     #form-update-container {
+      position: relative;
       box-sizing: border-box;
       padding: 3vh 3vw;
       min-width: 250px;
       width: 20%;
       height: 680px;
-      border: 2px solid rgba($color-dark, 0.4);
+      border: 2px solid rgba($color-dark, 0.2);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.192);
+      // background: rgba(255, 255, 255, 0.192);
+      background: url("../img/ardoise.jpg") center/cover;
 
       h2 {
         background: none;
         height: 5vh;
         border-radius: 8px;
         margin-bottom: 2vh;
+      }
+
+      .fa-times-circle {
+        position: absolute;
+        top: 1px;
+        right: -9px;
+        color: rgba($color-redHighlight, 1);
       }
 
       #formUpdate {
@@ -174,10 +214,6 @@ main {
         align-items: center;
         text-decoration: none;
 
-        .select2 {
-          width: 100% !important;
-        }
-
         div {
           width: 100%;
 
@@ -185,6 +221,7 @@ main {
           textarea {
             width: 100%;
             text-align: center;
+            color: white;
           }
 
           input[type="submit"] {
@@ -208,6 +245,12 @@ main {
             border: none;
             border-radius: 4px;
           }
+        }
+
+        input:not([type="submit"]),
+        textarea,
+        .select2-container {
+          background: rgba(255, 255, 255, 0.233);
         }
       }
     }

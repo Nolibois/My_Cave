@@ -13,51 +13,54 @@ ob_start();
 ?>
 
 <main>
+
   <h1>Bienvenue dans votre cave <?= $_SESSION['firstname'] ?> <?= $_SESSION['lastname'] ?></h1>
 
-  <ul>
-    <p>Dans cet espace vous pouvez: </p>
+  <div id="background">
 
-    <li>Ajouter une nouvelle bouteille</li>
-    <li>Filtrer les bouteilles</li>
-    <li>Sélectionner et modifier</li>
-    <li>Effacer</li>
-  </ul>
+    <ul>
+      <p>Dans cet espace vous pouvez: </p>
+
+      <li>Ajouter une nouvelle bouteille</li>
+      <li>Filtrer les bouteilles</li>
+      <li>Sélectionner et modifier</li>
+      <li>Effacer</li>
+    </ul>
 
 
-  <section id="create">
+    <section id="create">
 
-    <h2>Ajouter une bouteille</h2>
+      <h2>Ajouter une bouteille</h2>
 
-    <form action="index.php?action=create" method="post" enctype="multipart/form-data">
-      <label for="pictureCreate" class="picture-row">Photo</label>
-      <input type="file" name="picture" id="pictureCreate" class="picture-row">
+      <form action="index.php?action=create" method="post" enctype="multipart/form-data">
+        <label for="pictureCreate" class="picture-row">Photo</label>
+        <input type="file" name="picture" id="pictureCreate" class="picture-row">
 
-      <label for="nameCreate" class="name-row">Nom du cru</label>
-      <input type="text" name="name" id="nameCreate" class="name-row">
+        <label for="nameCreate" class="name-row">Nom du cru</label>
+        <input type="text" name="name" id="nameCreate" class="name-row">
 
-      <label for="yearCreate" class="year-row">Millésime</label>
-      <select class="js-year-basic js-year-data-array js-states form-control year-row" id="yearCreate" name="year[]"></select>
+        <label for="yearCreate" class="year-row">Millésime</label>
+        <select class="js-year-basic js-year-data-array js-states form-control year-row" id="yearCreate" name="year[]"></select>
 
-      <label for="id_grapesCreate_multiple" class="grapes-row">Cépages</label>
-      <select class="js-grapes-basic-multiple js-grapes-data-array js-states form-control grapes-row" id="id_grapesCreate_multiple" name="id_grapes_multiple[]" multiple="multiple">
-      </select>
+        <label for="id_grapesCreate_multiple" class="grapes-row">Cépages</label>
+        <select class="js-grapes-basic-multiple js-grapes-data-array js-states form-control grapes-row" id="id_grapesCreate_multiple" name="id_grapes_multiple[]" multiple="multiple">
+        </select>
 
-      <label for="countryCreate" class="country-row">Pays</label>
-      <input type="text" name="country" id="countryCreate" class="country-row">
+        <label for="countryCreate" class="country-row">Pays</label>
+        <input type="text" name="country" id="countryCreate" class="country-row">
 
-      <label for="regionCreate" class="region-row">Région</label>
-      <input type="text" name="region" id="regionCreate" class="region-row">
+        <label for="regionCreate" class="region-row">Région</label>
+        <input type="text" name="region" id="regionCreate" class="region-row">
 
-      <label for="descriptionCreate" class="description-row">Description</label>
-      <textarea class="description-row" name="description" id="descriptionCreate" cols="40" rows="10"></textarea>
+        <label for="descriptionCreate" class="description-row">Description</label>
+        <textarea class="description-row" name="description" id="descriptionCreate" cols="40" rows="10"></textarea>
 
-      <input type="submit" name="btn-create" value="Ajouter">
+        <input type="submit" name="btn-create" value="Ajouter">
 
-    </form>
+      </form>
 
-  </section>
-
+    </section>
+  </div>
 
   <!-- <h2>Filtrer</h2>
 

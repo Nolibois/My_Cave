@@ -1,11 +1,11 @@
 <?php $titlePage = "My Cave"; ?>
 
 <?php
-// For TESTING
-$imgBottle = 'public/img/block_nine.png';
-$name = 'BLOCK NINE';
-$country = 'USA';
-$year = '2009';
+$pathImg = "public/uploads/";
+
+if (!isset($bottle1) || !isset($bottle2) || !isset($bottle3)) {
+  array_push($msgError, 'Un problème pour récupérer les données du caroussel est survenu.');
+}
 
 ?>
 
@@ -21,9 +21,27 @@ $year = '2009';
     <h2>Bouteille du moment</h2>
 
     <div class="single-item">
-      <div><img src="<?= $imgBottle; ?>" alt="..."></div>
-      <div><img src="<?= $imgBottle; ?>" alt="..."></div>
-      <div><img src="<?= $imgBottle; ?>" alt="..."></div>
+      <div>
+        <img src="<?= $pathImg; ?><?= $bottle1["picture"]; ?>" alt="Bouteille <?= $bottle1["picture"]; ?>">
+        <div>
+          <h3><?= $bottle1["name"]; ?></h3>
+          <p><?= $bottle1["year"]; ?></p>
+        </div>
+      </div>
+      <div>
+        <img src="<?= $pathImg; ?><?= $bottle2["picture"]; ?>" alt="Bouteille <?= $bottle2["picture"]; ?>">
+        <div>
+          <h3><?= $bottle2["name"]; ?></h3>
+          <p><?= $bottle2["year"]; ?></p>
+        </div>
+      </div>
+      <div>
+        <img src="<?= $pathImg; ?><?= $bottle3["picture"]; ?>" alt="Bouteille <?= $bottle3["picture"]; ?>">
+        <div>
+          <h3><?= $bottle3["name"]; ?></h3>
+          <p><?= $bottle3["year"]; ?></p>
+        </div>
+      </div>
     </div>
   </div>
 

@@ -35,7 +35,10 @@ if (isset($_GET['action'])) {
 
           // Get infos User
           $result = connectUser($_POST['email']);
+
           $infosUser = $result->fetch(PDO::FETCH_ASSOC);
+
+
 
           // Check password
           if (password_verify($_POST['pass'], $infosUser['password'])) {

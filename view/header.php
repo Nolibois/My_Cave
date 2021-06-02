@@ -1,5 +1,7 @@
 <header>
   <?php
+
+
   if (isset($_SESSION) && !empty($_SESSION)) {
   ?>
     <div>

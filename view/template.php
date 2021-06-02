@@ -6,6 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= $titlePage; ?></title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/svg" href="/public/img/glass.svg" />
+
   <!-- Stylesheet -->
   <link rel="stylesheet" href="public/css/style.css">
 

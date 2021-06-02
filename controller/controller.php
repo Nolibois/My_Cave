@@ -14,10 +14,50 @@ function displayError($msgError)
 <?php
 }
 
+///////////// Read x3 bottles ////////////////////
+function randThree()
+{
+
+  $listIdBottles = [];
+  $threeId = [];
+  $result = getIdBottles();
+
+  $idBottles = $result->fetchALL(PDO::FETCH_ASSOC);
+
+  $result->closeCursor();
+
+  // Get all id from bottles
+  foreach ($idBottles as $value) {
+    array_push($listIdBottles, $value['id']);
+  }
+
+  // Rand 3 keys
+  $threeKeys = array_rand($listIdBottles, 3);
+
+  // Get x3 id
+  foreach ($threeKeys as $value) {
+    array_push($threeId, $listIdBottles[$value]);
+  }
+
+  return $threeId;
+}
+
 
 //////////// Home Page /////////////////////////////////
 function index()
 {
+  $threeId = randThree();
+
+  $result1 = getBottle($threeId[0]);
+  $bottle1 = $result1->fetch(PDO::FETCH_ASSOC);
+
+  $result2 = getBottle($threeId[1]);
+  $bottle2 = $result2->fetch(PDO::FETCH_ASSOC);
+
+  $result3 = getBottle($threeId[2]);
+  $bottle3 = $result3->fetch(PDO::FETCH_ASSOC);
+
+
   require 'view/homeView.php';
 }
 
@@ -30,8 +70,8 @@ function formConnect()
 
 function connectUser($email)
 {
+
   $result = getUserInfos($email);
-  header('location: index.php');
 
   return $result;
 }

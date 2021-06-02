@@ -104,18 +104,17 @@ nav {
 
 #presentation {
   background: rgba($color-dark, 1);
-  height: 25vh;
-  padding: 0 10vw;
+  padding: 2vh 10vw;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   color: white;
 }
 
 #highlight {
   width: 100%;
-  padding: 3vw;
+  padding: 11vh 0;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -124,9 +123,63 @@ nav {
   color: white;
 
   .carousel {
+    padding: 8vh 6vw;
+    height: 62vh;
     width: 250px;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.295);
+
+    h2 {
+      height: 20%;
+    }
+
+    .slick-slider {
+      height: 80%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+
+      .slick-list {
+        height: 100%;
+
+        .slick-track {
+          height: 100%;
+
+          .slick-slide {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+          }
+        }
+      }
+
+      .slick-arrow {
+        border-radius: 4px;
+        position: absolute;
+        background: none;
+        border: none;
+
+        .fas {
+          font-size: 2rem;
+          color: white;
+        }
+
+        .fas:hover {
+          cursor: pointer;
+        }
+      }
+
+      .slick-prev {
+        left: -50px;
+      }
+
+      .slick-next {
+        right: -50px;
+      }
+    }
   }
 }
 

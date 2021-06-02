@@ -12,6 +12,17 @@ function getUserInfos($email)
   return $result;
 }
 
+////////// Get id bottles
+function getIdBottles()
+{
+
+  $bdd = dbConnect();
+
+  $result = $bdd->query("SELECT id FROM bottles");
+
+  return $result;
+}
+
 ///////// Get list bottles 
 function getListBottles($order = "", $column = "")
 {
@@ -31,6 +42,17 @@ function getListBottles($order = "", $column = "")
   $bdd = dbConnect();
 
   $result = $bdd->query("SELECT id, name, year, grapes, country, region, description, picture, date_creation, date_last_setting FROM bottles $orderBy");
+
+  return $result;
+}
+
+////////// Get one bottle
+function getBottle($id)
+{
+
+  $bdd = dbConnect();
+
+  $result = $bdd->query("SELECT  picture, name, year FROM bottles WHERE id = $id");
 
   return $result;
 }

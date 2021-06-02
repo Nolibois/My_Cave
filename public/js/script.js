@@ -87,7 +87,14 @@ $(document).ready(function () {
   });
 
   /////////////// SLICK Carousel ////////////////
-  $(".single-item").slick();
+  $(".single-item").slick({
+    prevArrow:
+      "<button type='button' class='slick-prev'><i class='fas fa-caret-square-left'></i></button>",
+    nextArrow:
+      "<button type='button' class='slick-next'><i class='fas fa-caret-square-right'></i></button>",
+    autoplay: true,
+    autoplaySpeed: 2000,
+  });
 
   ///////////// Display one bottle selected from the list ///////////////////////////
   $(".card-bottle").on("click", (e) => {
