@@ -9,7 +9,7 @@ function displayError($msgError)
   }
 ?>
   <div>
-    <a href="index?">Retour à l'accueil</a>
+    <a href="index.php">Retour à l'accueil</a>
   </div>
 <?php
 }
@@ -84,7 +84,7 @@ function disconnectUser()
   session_unset();
   session_destroy();
 
-  require 'view/homeView.php';
+  index();
 }
 
 

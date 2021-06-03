@@ -75,8 +75,7 @@ if (isset($_GET['action'])) {
 
       oneBottle($_GET['set']);
     } else {
-      echo 'ATTENTION';
-      die;
+      array_push($msgError, 'Un problème est survenu lors de l\'exécution du caroussel.');
     }
 
 

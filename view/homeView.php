@@ -3,6 +3,7 @@
 <?php
 $pathImg = "public/uploads/";
 
+
 if (!isset($bottle1) || !isset($bottle2) || !isset($bottle3)) {
   array_push($msgError, 'Un problème pour récupérer les données du caroussel est survenu.');
 }
