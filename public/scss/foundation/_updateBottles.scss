@@ -1,0 +1,319 @@
+main {
+  // padding: 7vh 5%;
+  box-sizing: border-box;
+  width: 100%;
+
+  h1 {
+    background: rgba($color-dark, 1);
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    background: rgba($color-dark, 1);
+    height: 10vh;
+    border-radius: 8px;
+    margin-bottom: 5vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0px 12px 17px -8px rgb(253, 252, 252);
+    position: relative;
+  }
+
+  a {
+    text-decoration: none;
+    color: rgba($color-dark, 1);
+  }
+
+  .select2-selection {
+    width: 100% !important;
+    background: none !important;
+    border: none !important;
+  }
+
+  #background {
+    padding-top: 5vh;
+  }
+}
+
+#create {
+  color: white;
+  box-sizing: border-box;
+  margin: 5vh auto;
+  padding: 3vh 3vw;
+  width: 50vw;
+  border-radius: 8px;
+  background: url("../img/ardoise.jpg") center/cover no-repeat;
+
+  .infos-data {
+    font-size: 0.7rem;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-rows: repeat(8);
+    grid-template-areas:
+      "pict-lab pict-inp"
+      "name-lab name-inp"
+      "year-lab year-inp"
+      "grap-lab grap-inp"
+      "cy-lab cy-inp"
+      "rgn-lab rgn-inp"
+      "desc-lab desc-inp"
+      "btn btn";
+    grid-gap: 10px;
+    align-items: center;
+
+    input:not([type="submit"]),
+    textarea,
+    .select2-container {
+      background: rgba(255, 255, 255, 0.233) !important;
+      color: white;
+      padding: 0 10px;
+    }
+
+    label {
+      justify-self: start;
+      padding-right: 15px;
+    }
+
+    label.picture-row {
+      grid-area: pict-lab;
+    }
+
+    input.picture-row {
+      grid-area: pict-inp;
+    }
+
+    label.name-row {
+      grid-area: name-lab;
+    }
+
+    input.name-row {
+      grid-area: name-inp;
+    }
+
+    label.year-row {
+      grid-area: year-lab;
+    }
+
+    input.year-row {
+      grid-area: year-inp;
+    }
+
+    label.grapes-row {
+      grid-area: grap-lab;
+    }
+
+    input.grapes-row {
+      grid-area: grap-inp;
+    }
+
+    label.country-row {
+      grid-area: cy-lab;
+    }
+
+    input.country-row {
+      grid-area: cy-inp;
+    }
+
+    label.region-row {
+      grid-area: rgn-lab;
+    }
+
+    input.region-row {
+      grid-area: rgn-inp;
+    }
+
+    label.description-row {
+      grid-area: desc-lab;
+    }
+
+    textarea.description-row {
+      grid-area: desc-inp;
+      resize: none;
+    }
+
+    input[type="submit"] {
+      grid-area: btn;
+      justify-self: center;
+      width: 70px;
+      height: 30px;
+    }
+  }
+}
+
+#update-bottles {
+  background: rgba($color-greyTech, 1);
+  padding: 5vh 5vw;
+
+  #orderBy {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+    fieldset {
+      padding: 3vh;
+      border-radius: 6px;
+      border: 2px solid rgba($color-dark, 0.2);
+
+      legend {
+        font-weight: bold;
+      }
+
+      div:hover {
+        background: rgba(255, 255, 255, 0.192);
+      }
+    }
+  }
+
+  .card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+
+    #form-update-container {
+      position: relative;
+      box-sizing: border-box;
+      padding: 3vh 3vw;
+      min-width: 250px;
+      width: 20%;
+      height: 680px;
+      border: 2px solid rgba($color-dark, 0.2);
+      border-radius: 8px;
+      // background: rgba(255, 255, 255, 0.192);
+      background: url("../img/ardoise.jpg") center/cover;
+
+      h2 {
+        background: none;
+        height: 5vh;
+        border-radius: 8px;
+        margin-bottom: 2vh;
+      }
+
+      .fa-times-circle {
+        position: absolute;
+        top: 1px;
+        right: -9px;
+        color: rgba($color-redHighlight, 1);
+      }
+
+      #formUpdate {
+        height: 88%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        text-decoration: none;
+
+        div {
+          width: 100%;
+
+          input:not([type="submit"]),
+          textarea {
+            width: 100%;
+            text-align: center;
+            color: white;
+          }
+
+          input[type="submit"] {
+            width: 60%;
+            height: 35px;
+          }
+
+          #descriptionUpadte {
+            width: auto;
+            border-radius: 5px;
+            height: 200px;
+            resize: none;
+            padding: 10px;
+            text-align: justify;
+          }
+
+          #btn-del {
+            background: rgba($color-redHighlight, 0.6);
+            height: 25px;
+            padding: 10px 0;
+            border: none;
+            border-radius: 4px;
+          }
+        }
+
+        input:not([type="submit"]),
+        textarea,
+        .select2-container {
+          background: rgba(255, 255, 255, 0.233);
+        }
+      }
+    }
+  }
+
+  .card-bottle {
+    padding: 1.5vw;
+    min-width: 250px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+
+    h2 {
+      color: rgba($color-myCave, 1);
+    }
+
+    .name,
+    .year {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: rgba($color-dark, 0.8);
+    }
+
+    .description {
+      font-size: 0.9rem;
+      font-style: italic;
+      padding: 10px 0;
+    }
+
+    .date {
+      font-size: 0.8rem;
+      color: rgba($color-dark, 0.8);
+
+      span {
+        font-weight: bold;
+      }
+    }
+
+    .btn-select {
+      margin-top: 10px;
+      background: rgba(255, 255, 255, 0.233);
+      border-radius: 6px;
+      height: 32px;
+      align-content: center;
+
+      a {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .btn-select:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+  }
+}

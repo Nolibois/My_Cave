@@ -1,43 +1,113 @@
 $(document).ready(function () {
-  //// Choice "Grapes"
-  let data = [
+  ////////////// Choice "GRAPES"
+  let dataGrapes = [
     {
-      id: 0,
+      id: "Merlot",
       text: "Merlot",
     },
     {
-      id: 1,
+      id: "Grenache Noir",
       text: "Grenache Noir",
     },
     {
-      id: 2,
+      id: "Syrah",
       text: "Syrah",
     },
     {
-      id: 3,
+      id: "Cabernet Sauvignon",
       text: "Cabernet Sauvignon",
     },
     {
-      id: 4,
+      id: "Carignan ",
       text: "Carignan ",
     },
     {
-      id: 5,
+      id: "Pinot Noir",
       text: "Pinot Noir",
     },
     {
-      id: 6,
+      id: "Sauvignon Blanc",
       text: "Sauvignon Blanc",
+    },
+    {
+      id: "Viognier",
+      text: "Viognier",
     },
   ];
 
-  $(".js-example-data-array").select2({
-    data: data,
+  $(".js-grapes-data-array").select2({
+    data: dataGrapes,
   });
 
-  $(".js-example-basic-multiple").select2({
+  // For Filters Form
+  $(".js-grapes-basic-multiple").select2({
     placeholder: "Choix des cépages",
     multiple: "multiple",
-    value: data,
+    allowClear: true,
+  });
+
+  ///////////////// Choice YEARS
+
+  let dataYear = [];
+  let nowDate = new Date();
+  const firstDate = new Date("january 01, 1900 00:01:00");
+  const firstYear = firstDate.getFullYear();
+  let nbYear = nowDate.getFullYear() - firstYear;
+
+  for (let i = 0; i <= nbYear; i++) {
+    dataYear.push(firstYear + i);
+  }
+
+  $(".js-year-data-array").select2({
+    data: dataYear,
+  });
+
+  $(".js-year-basic").select2({
+    placeholder: "Année",
+    allowClear: true,
+  });
+
+  //////////////// Delete bottle confirmation /////////////
+  $("#btn-del").on("click", (e) => {
+    e.preventDefault();
+
+    $("#myModal").css("display", "flex");
+    const textReturn = "";
+
+    let dataUri = $("#formUpdate").attr("action");
+
+    $("#close").on("click", (e) => {
+      $("#myModal").css("display", "none");
+    });
+
+    $("#delete").on("click", (e) => {
+      $("#myModal").css("display", "none"),
+        $.get(dataUri, dataUri, textReturn, "text");
+    });
+  });
+
+  /////////////// SLICK Carousel ////////////////
+  $(".single-item").slick({
+    prevArrow:
+      "<button type='button' class='slick-prev'><i class='fas fa-caret-square-left'></i></button>",
+    nextArrow:
+      "<button type='button' class='slick-next'><i class='fas fa-caret-square-right'></i></button>",
+    autoplay: true,
+    autoplaySpeed: 2000,
+  });
+
+  ///////////// Display one bottle selected from the list ///////////////////////////
+  $(".card-bottle").on("click", (e) => {
+    // AJAX
+  });
+
+  /////////////// Scroll Up //////////////////
+  $("#scroll-up").click(function () {
+    $("html, body").animate(
+      {
+        scrollTop: $("#logo-nav").offset().top,
+      },
+      1000
+    );
   });
 });

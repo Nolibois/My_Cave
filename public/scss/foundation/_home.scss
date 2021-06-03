@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel&family=Lovers+Quarrel&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  font-family: "Cinzel", serif;
+  color: rgba($color-dark, 1);
+
+  h1 {
+    font-family: "Lovers Quarrel", cursive;
+    font-size: 3rem;
+    font-weight: normal;
+    color: white;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  input {
+    height: 28px;
+  }
+
+  textarea,
+  input {
+    border-radius: 4px;
+    border: 1px solid rgba($color-greyTech, 1);
+  }
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+
+  #nav-container {
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    width: 100%;
+    background: url("../img/margaux_bg_tonneau.jpg") center/cover;
+
+    #logo-nav {
+      height: 100%;
+    }
+  }
+}
+
+header,
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  #logo-nav a,
+  #logo-footer a {
+    font-family: "Lovers Quarrel", cursive;
+    font-size: 4rem;
+    color: rgba($color-myCave, 1);
+    text-decoration: none;
+  }
+
+  a {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+  height: 100%;
+  color: white;
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    li {
+      list-style-type: none;
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
+}
+
+#presentation {
+  background: rgba($color-dark, 1);
+  padding: 2vh 10vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+
+#highlight {
+  width: 100%;
+  padding: 11vh 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../img/margaux_chai3.jpg") center/cover;
+  color: white;
+
+  .carousel {
+    padding: 8vh 6vw;
+    height: 62vh;
+    width: 250px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.295);
+
+    h2 {
+      height: 20%;
+    }
+
+    .slick-slider {
+      height: 80%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+
+      .slick-list {
+        height: 100%;
+
+        .slick-track {
+          height: 100%;
+
+          .slick-slide {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+          }
+        }
+      }
+
+      .slick-arrow {
+        border-radius: 4px;
+        position: absolute;
+        background: none;
+        border: none;
+
+        .fas {
+          font-size: 2rem;
+          color: white;
+        }
+
+        .fas:hover {
+          cursor: pointer;
+        }
+      }
+
+      .slick-prev {
+        left: -50px;
+      }
+
+      .slick-next {
+        right: -50px;
+      }
+    }
+  }
+}
+
+.select2-container {
+  width: auto !important;
+}
+
+#myModal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba($color-redHighlight, 0.8);
+  color: white;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  .modal-content {
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+footer {
+  background: rgba($color-dark, 1);
+  position: relative;
+  height: 80px;
+
+  #logo-footer a {
+    font-size: 2.5rem;
+  }
+
+  #scroll-up {
+    color: white;
+    position: fixed;
+    font-size: 3rem;
+    right: 20px;
+    bottom: 50px;
+    cursor: pointer;
+  }
+
+  #scroll-up:hover {
+    color: rgba($color-dark, 0.7);
+  }
+}

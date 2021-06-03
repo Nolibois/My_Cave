@@ -2,10 +2,10 @@
 
 <?php ob_start(); ?>
 
-<section>
+<section id="formConnect">
   <h1>Connexion</h1>
 
-  <form action="index.php" method="post">
+  <form action="index.php?action=formConnect" method="post">
     <div>
       <label for="email">Email</label>
       <input type="email" name="email" id="email">

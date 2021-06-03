@@ -1,59 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+$color-myCave: #f2aa6b;
+$color-redHighlight: #f20519;
+$color-wine: #8c031c;
+$color-greyTech: #8c8c8c;
+$color-dark: #0d0d0d;
 
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  text-align: center;
-}
-
-header,
-footer {
-  height: 100px;
-  width: 100vw;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  a {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-nav {
-  width: 70%;
-  ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    li {
-      list-style-type: none;
-
-      a {
-        text-decoration: none;
-      }
-    }
-  }
-}
-
-#presentation {
-  width: 100vw;
-  height: 20vh;
-  padding: 0 10vw;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-select {
-  width: 150px;
-}
+@import "foundation/bottlesList";
+@import "foundation/updateBottles";
+@import "foundation/home";
+@import "foundation/userConnect";
+@import "foundation/bottle";

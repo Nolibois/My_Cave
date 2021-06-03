@@ -1,23 +1,377 @@
+@import url("https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel&family=Lovers+Quarrel&display=swap");
+.listBottles {
+  padding: 7vh 5%;
+  background: url("");
+  background-size: contain;
+}
+.listBottles h1 {
+  background: #0d0d0d;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0px 12px 17px -8px #fdfcfc;
+  position: relative;
+}
+.listBottles .card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 2vw;
+  padding-top: 5vh;
+  background: #8c8c8c;
+}
+.listBottles .card-bottle {
+  padding: 1.5vw;
+  min-width: 250px;
+  width: 20%;
+  color: white;
+  box-sizing: border-box;
+}
+.listBottles .card-bottle a {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none !important;
+}
+.listBottles .card-bottle h2 {
+  color: #f2aa6b;
+}
+.listBottles .card-bottle:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+}
+
+main {
+  box-sizing: border-box;
+  width: 100%;
+}
+main h1 {
+  background: #0d0d0d;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+main h2 {
+  font-size: 1.2rem;
+  background: #0d0d0d;
+  height: 10vh;
+  border-radius: 8px;
+  margin-bottom: 5vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0px 12px 17px -8px #fdfcfc;
+  position: relative;
+}
+main a {
+  text-decoration: none;
+  color: #0d0d0d;
+}
+main .select2-selection {
+  width: 100% !important;
+  background: none !important;
+  border: none !important;
+}
+main #background {
+  padding-top: 5vh;
+}
+
+#create {
+  color: white;
+  box-sizing: border-box;
+  margin: 5vh auto;
+  padding: 3vh 3vw;
+  width: 50vw;
+  border-radius: 8px;
+  background: url("../img/ardoise.jpg") center/cover no-repeat;
+}
+#create .infos-data {
+  font-size: 0.7rem;
+}
+#create form {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-auto-rows: repeat(8);
+  grid-template-areas: "pict-lab pict-inp" "name-lab name-inp" "year-lab year-inp" "grap-lab grap-inp" "cy-lab cy-inp" "rgn-lab rgn-inp" "desc-lab desc-inp" "btn btn";
+  grid-gap: 10px;
+  align-items: center;
+}
+#create form input:not([type=submit]),
+#create form textarea,
+#create form .select2-container {
+  background: rgba(255, 255, 255, 0.233) !important;
+  color: white;
+  padding: 0 10px;
+}
+#create form label {
+  justify-self: start;
+  padding-right: 15px;
+}
+#create form label.picture-row {
+  grid-area: pict-lab;
+}
+#create form input.picture-row {
+  grid-area: pict-inp;
+}
+#create form label.name-row {
+  grid-area: name-lab;
+}
+#create form input.name-row {
+  grid-area: name-inp;
+}
+#create form label.year-row {
+  grid-area: year-lab;
+}
+#create form input.year-row {
+  grid-area: year-inp;
+}
+#create form label.grapes-row {
+  grid-area: grap-lab;
+}
+#create form input.grapes-row {
+  grid-area: grap-inp;
+}
+#create form label.country-row {
+  grid-area: cy-lab;
+}
+#create form input.country-row {
+  grid-area: cy-inp;
+}
+#create form label.region-row {
+  grid-area: rgn-lab;
+}
+#create form input.region-row {
+  grid-area: rgn-inp;
+}
+#create form label.description-row {
+  grid-area: desc-lab;
+}
+#create form textarea.description-row {
+  grid-area: desc-inp;
+  resize: none;
+}
+#create form input[type=submit] {
+  grid-area: btn;
+  justify-self: center;
+  width: 70px;
+  height: 30px;
+}
+
+#update-bottles {
+  background: #8c8c8c;
+  padding: 5vh 5vw;
+}
+#update-bottles #orderBy {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+#update-bottles #orderBy fieldset {
+  padding: 3vh;
+  border-radius: 6px;
+  border: 2px solid rgba(13, 13, 13, 0.2);
+}
+#update-bottles #orderBy fieldset legend {
+  font-weight: bold;
+}
+#update-bottles #orderBy fieldset div:hover {
+  background: rgba(255, 255, 255, 0.192);
+}
+#update-bottles .card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+}
+#update-bottles .card-container #form-update-container {
+  position: relative;
+  box-sizing: border-box;
+  padding: 3vh 3vw;
+  min-width: 250px;
+  width: 20%;
+  height: 680px;
+  border: 2px solid rgba(13, 13, 13, 0.2);
+  border-radius: 8px;
+  background: url("../img/ardoise.jpg") center/cover;
+}
+#update-bottles .card-container #form-update-container h2 {
+  background: none;
+  height: 5vh;
+  border-radius: 8px;
+  margin-bottom: 2vh;
+}
+#update-bottles .card-container #form-update-container .fa-times-circle {
+  position: absolute;
+  top: 1px;
+  right: -9px;
+  color: #f20519;
+}
+#update-bottles .card-container #form-update-container #formUpdate {
+  height: 88%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+}
+#update-bottles .card-container #form-update-container #formUpdate div {
+  width: 100%;
+}
+#update-bottles .card-container #form-update-container #formUpdate div input:not([type=submit]),
+#update-bottles .card-container #form-update-container #formUpdate div textarea {
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+#update-bottles .card-container #form-update-container #formUpdate div input[type=submit] {
+  width: 60%;
+  height: 35px;
+}
+#update-bottles .card-container #form-update-container #formUpdate div #descriptionUpadte {
+  width: auto;
+  border-radius: 5px;
+  height: 200px;
+  resize: none;
+  padding: 10px;
+  text-align: justify;
+}
+#update-bottles .card-container #form-update-container #formUpdate div #btn-del {
+  background: rgba(242, 5, 25, 0.6);
+  height: 25px;
+  padding: 10px 0;
+  border: none;
+  border-radius: 4px;
+}
+#update-bottles .card-container #form-update-container #formUpdate input:not([type=submit]),
+#update-bottles .card-container #form-update-container #formUpdate textarea,
+#update-bottles .card-container #form-update-container #formUpdate .select2-container {
+  background: rgba(255, 255, 255, 0.233);
+}
+#update-bottles .card-bottle {
+  padding: 1.5vw;
+  min-width: 250px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+#update-bottles .card-bottle h2 {
+  color: #f2aa6b;
+}
+#update-bottles .card-bottle .name,
+#update-bottles .card-bottle .year {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: rgba(13, 13, 13, 0.8);
+}
+#update-bottles .card-bottle .description {
+  font-size: 0.9rem;
+  font-style: italic;
+  padding: 10px 0;
+}
+#update-bottles .card-bottle .date {
+  font-size: 0.8rem;
+  color: rgba(13, 13, 13, 0.8);
+}
+#update-bottles .card-bottle .date span {
+  font-weight: bold;
+}
+#update-bottles .card-bottle .btn-select {
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.233);
+  border-radius: 6px;
+  height: 32px;
+  align-content: center;
+}
+#update-bottles .card-bottle .btn-select a {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#update-bottles .card-bottle .btn-select:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   text-align: center;
+  font-family: "Cinzel", serif;
+  color: #0d0d0d;
+}
+body h1 {
+  font-family: "Lovers Quarrel", cursive;
+  font-size: 3rem;
+  font-weight: normal;
+  color: white;
+}
+body li {
+  list-style-type: none;
+}
+body input {
+  height: 28px;
+}
+body textarea,
+body input {
+  border-radius: 4px;
+  border: 1px solid #8c8c8c;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+header #nav-container {
+  display: flex;
+  justify-content: space-around;
+  height: 100px;
+  width: 100%;
+  background: url("../img/margaux_bg_tonneau.jpg") center/cover;
+}
+header #nav-container #logo-nav {
+  height: 100%;
 }
 
 header,
 footer {
-  height: 100px;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+header #logo-nav a,
+header #logo-footer a,
+footer #logo-nav a,
+footer #logo-footer a {
+  font-family: "Lovers Quarrel", cursive;
+  font-size: 4rem;
+  color: #f2aa6b;
+  text-decoration: none;
 }
 header a,
 footer a {
@@ -28,7 +382,12 @@ footer a {
 }
 
 nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 70%;
+  height: 100%;
+  color: white;
 }
 nav ul {
   display: flex;
@@ -40,20 +399,204 @@ nav ul li {
 }
 nav ul li a {
   text-decoration: none;
+  color: white;
 }
 
 #presentation {
-  width: 100vw;
-  height: 20vh;
-  padding: 0 10vw;
+  background: #0d0d0d;
+  padding: 2vh 10vw;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+  color: white;
 }
 
-select {
-  width: 150px;
+#highlight {
+  width: 100%;
+  padding: 11vh 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../img/margaux_chai3.jpg") center/cover;
+  color: white;
+}
+#highlight .carousel {
+  padding: 8vh 6vw;
+  height: 62vh;
+  width: 250px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.295);
+}
+#highlight .carousel h2 {
+  height: 20%;
+}
+#highlight .carousel .slick-slider {
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+#highlight .carousel .slick-slider .slick-list {
+  height: 100%;
+}
+#highlight .carousel .slick-slider .slick-list .slick-track {
+  height: 100%;
+}
+#highlight .carousel .slick-slider .slick-list .slick-track .slick-slide {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+#highlight .carousel .slick-slider .slick-arrow {
+  border-radius: 4px;
+  position: absolute;
+  background: none;
+  border: none;
+}
+#highlight .carousel .slick-slider .slick-arrow .fas {
+  font-size: 2rem;
+  color: white;
+}
+#highlight .carousel .slick-slider .slick-arrow .fas:hover {
+  cursor: pointer;
+}
+#highlight .carousel .slick-slider .slick-prev {
+  left: -50px;
+}
+#highlight .carousel .slick-slider .slick-next {
+  right: -50px;
+}
+
+.select2-container {
+  width: auto !important;
+}
+
+#myModal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(242, 5, 25, 0.8);
+  color: white;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+#myModal .modal-content {
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer {
+  background: #0d0d0d;
+  position: relative;
+  height: 80px;
+}
+footer #logo-footer a {
+  font-size: 2.5rem;
+}
+footer #scroll-up {
+  color: white;
+  position: fixed;
+  font-size: 3rem;
+  right: 20px;
+  bottom: 50px;
+  cursor: pointer;
+}
+footer #scroll-up:hover {
+  color: rgba(13, 13, 13, 0.7);
+}
+
+#formConnect {
+  height: 50vh;
+  width: 40vw;
+  margin: 10vh 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+  background: url("../img/ardoise.jpg") center/cover;
+  border-radius: 8px;
+  color: white;
+}
+#formConnect form {
+  height: 70%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+#formConnect div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+#formConnect div input:not([type=submit]) {
+  width: 80%;
+  text-align: center;
+}
+#formConnect div input[type=submit] {
+  width: 60%;
+  height: 35px;
+}
+#formConnect div #btn-connect {
+  background: rgba(242, 5, 25, 0.6);
+  height: 25px;
+  padding: 10px 0;
+  border: none;
+  border-radius: 4px;
+}
+#formConnect input:not([type=submit]),
+#formConnect textarea,
+#formConnect .select2-container {
+  background: rgba(255, 255, 255, 0.233);
+}
+
+.infos-bottle {
+  padding: 10vh 0;
+  background: #8c8c8c;
+}
+.infos-bottle .card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 2vw;
+  padding-top: 5vh;
+}
+.infos-bottle .card-bottle {
+  padding: 1.5vw;
+  min-width: 250px;
+  width: 40%;
+  color: white;
+  box-sizing: border-box;
+}
+.infos-bottle .card-bottle h2,
+.infos-bottle .card-bottle h3 {
+  color: #f2aa6b;
+}
+.infos-bottle a {
+  padding: 10px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+}
+.infos-bottle a:hover {
+  background: rgba(255, 255, 255, 0.5);
 }
 
 /*# sourceMappingURL=style.css.map */
