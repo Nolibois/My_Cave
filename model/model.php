@@ -55,7 +55,7 @@ function getListBottles($order = "", $column = "")
 
   $bdd = dbConnect();
 
-  $result = $bdd->query("SELECT id, name, year, grapes, country, region, description, picture, date_creation FROM bottles $orderBy");
+  $result = $bdd->query("SELECT id, name, year, grapes, country, region, description, picture, date_creation, date_last_setting FROM bottles $orderBy");
 
   return $result;
 }
@@ -83,12 +83,13 @@ function updateBottle($arrayBottle, $picture)
 
   if (!empty($picture)) {
     $arrayBottle['picture'] = $picture;
-    $namePicture = "picture = :picture,";
+    $namePicture = ", picture = :picture";
   } else {
     $picture = "";
+    $namePicture = "";
   }
 
-  $req = $bdd->prepare("UPDATE bottles SET name = :name, year = :year, grapes = :grapes, country = :country, region = :region, description = :description, $namePicture  WHERE id = :id");
+  $req = $bdd->prepare("UPDATE bottles SET name = :name, year = :year, grapes = :grapes, country = :country, region = :region, description = :description $namePicture WHERE id = :id");
 
   $req->execute($arrayBottle);
 
