@@ -122,10 +122,6 @@ ob_start();
           <a href="index.php?action=manageCave&order=<?= $order ?>&column=date_creation"><span>Date de création</span>
             <i class="fas fa-sort"></i></a>
         </div>
-        <div>
-          <a href="index.php?action=manageCave&order=<?= $order ?>&column=date_last_setting"><span>Dernière modification</span>
-            <i class="fas fa-sort"></i></a>
-        </div>
       </fieldset>
 
     </div>
@@ -146,69 +142,69 @@ ob_start();
             <div><?= $value['region']; ?></div>
             <div class="description">"<?= $value['description']; ?>"</div>
             <div class="date"><span>Créée le: </span><?= $value['date_creation']; ?></div>
-            <div class="date"><span>Dernière MàJ: </span><?= $value['date_last_setting']; ?></div>
-            <div class="btn-select"><a href="index.php?action=manageCave&set=<?= $value['id']; ?>">Sélectionner</a></div>
-
-          </div>
-        </div>
-
-        <?php
-
-        // "Modification" to append between lines of bottles
-        if (isset($_GET['set']) && ($_GET['set'] == $value['id'])) {
-        ?>
-
-          <div id="form-update-container">
-            <div>
-              <h2>Modification <a href="index.php?action=manageCave"><i class="far fa-times-circle"></i></a></h2>
+            <div class="date">
+              <div class="btn-select"><a href="index.php?action=manageCave&set=<?= $value['id']; ?>">Sélectionner</a></div>
 
             </div>
-            <form id="formUpdate" action="index.php?action=manageCave&set=<?= $value['id']; ?>&picture=<?= $value['picture']; ?>" method="post" enctype="multipart/form-data">
-              <div>
-                <label for="pictureUpdate">Photo</label>
-                <input type="file" name="picture" id="pictureUpdate">
-              </div>
-              <div>
-                <input type="text" name="name" id="name" value='<?= $value['name']; ?>'>
-              </div>
-              <div>
-                <select class="js-year-basic js-year-data-array js-states form-control" id="yearUpdate" name="yearUpdate[]">
-                </select>
-              </div>
-              <div>
-                <select class="js-grapes-basic-multiple js-grapes-data-array js-states form-control" id="id_grapesUpdate_multiple" name="id_grapesUpdate_multiple[]" multiple="multiple">
-                </select>
-              </div>
-              <div>
-                <input type="text" name="country" id="country" value="<?= $value['country']; ?>">
-              </div>
-              <div>
-                <input type="text" name="region" id="region" value=<?= $value['region']; ?>>
-              </div>
-              <div>
-                <textarea name="description" id="descriptionUpadte"><?= $value['description']; ?></textarea>
-              </div>
-              <div>
-                <input type="submit" name="btn-update-bottle" value="MODIFIER">
-              </div>
-              <div>
-                <button id="btn-del">SUPPRIMER</button>
-              </div>
-              <div id="myModal" class="modal">
-                <div class="modal-content">
-                  <p>Êtes-vous bien certains de vouloir SUPPRIMER cette bouteille?</p>
-                  <input type="submit" id="delete" name="btn-delete-bottle" value="SUPPRIMER">
-                  <input type="submit" id="close" name="btn-close-bottle" value="NON">
-                </div>
-              </div>
-            </form>
           </div>
-      <?php
-        }
-      }
-      ?>
 
-    </div>
+          <?php
+
+          // "Modification" to append between lines of bottles
+          if (isset($_GET['set']) && ($_GET['set'] == $value['id'])) {
+          ?>
+
+            <div id="form-update-container">
+              <div>
+                <h2>Modification <a href="index.php?action=manageCave"><i class="far fa-times-circle"></i></a></h2>
+
+              </div>
+              <form id="formUpdate" action="index.php?action=manageCave&set=<?= $value['id']; ?>&picture=<?= $value['picture']; ?>" method="post" enctype="multipart/form-data">
+                <div>
+                  <label for="pictureUpdate">Photo</label>
+                  <input type="file" name="picture" id="pictureUpdate">
+                </div>
+                <div>
+                  <input type="text" name="name" id="name" value='<?= $value['name']; ?>'>
+                </div>
+                <div>
+                  <select class="js-year-basic js-year-data-array js-states form-control" id="yearUpdate" name="yearUpdate[]">
+                  </select>
+                </div>
+                <div>
+                  <select class="js-grapes-basic-multiple js-grapes-data-array js-states form-control" id="id_grapesUpdate_multiple" name="id_grapesUpdate_multiple[]" multiple="multiple">
+                  </select>
+                </div>
+                <div>
+                  <input type="text" name="country" id="country" value="<?= $value['country']; ?>">
+                </div>
+                <div>
+                  <input type="text" name="region" id="region" value=<?= $value['region']; ?>>
+                </div>
+                <div>
+                  <textarea name="description" id="descriptionUpadte"><?= $value['description']; ?></textarea>
+                </div>
+                <div>
+                  <input type="submit" name="btn-update-bottle" value="MODIFIER">
+                </div>
+                <div>
+                  <button id="btn-del">SUPPRIMER</button>
+                </div>
+                <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <p>Êtes-vous bien certains de vouloir SUPPRIMER cette bouteille?</p>
+                    <input type="submit" id="delete" name="btn-delete-bottle" value="SUPPRIMER">
+                    <input type="submit" id="close" name="btn-close-bottle" value="NON">
+                  </div>
+                </div>
+              </form>
+            </div>
+        <?php
+          }
+        }
+        ?>
+
+        </div>
   </section>
 </main>
 
