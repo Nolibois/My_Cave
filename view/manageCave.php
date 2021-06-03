@@ -31,9 +31,9 @@ ob_start();
     <section id="create">
 
       <h2>Ajouter une bouteille</h2>
-
+      <p class="infos-data">* Les photos doivent faire h:300px X L:250px au risque d'avoir des images diformes.</p>
       <form action="index.php?action=create" method="post" enctype="multipart/form-data">
-        <label for="pictureCreate" class="picture-row">Photo</label>
+        <label for="pictureCreate" class="picture-row">Photo *</label>
         <input type="file" name="picture" id="pictureCreate" class="picture-row">
 
         <label for="nameCreate" class="name-row">Nom du cru</label>

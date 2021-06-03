@@ -68,6 +68,18 @@ if (isset($_GET['action'])) {
   } elseif ($_GET['action'] == 'bottles') {
     listBottles($_GET['action']);
 
+    //////////////// Display a selection bottle ///////
+  } elseif (($_GET['action'] == 'bottle') && (isset($_GET['set']))) {
+
+    if (is_numeric($_GET['set'])) {
+
+      oneBottle($_GET['set']);
+    } else {
+      echo 'ATTENTION';
+      die;
+    }
+
+
     ////////////// List and manage Bottles ////////////
   } elseif (($_GET['action'] == "manageCave") && ($_SESSION['admin'] == 1)) {
 

@@ -12,10 +12,12 @@ ob_start();
     foreach ($listBottles as $key => $value) {
     ?>
       <div class="card-bottle">
-        <img src='<?= $pathImg; ?><?= $value['picture']; ?>' alt="Bouteille <?= $value['picture']; ?>">
-        <h2><?= $value['name']; ?></h2>
-        <p><?= $value['year']; ?></p>
-        <p><?= $value['country']; ?></p>
+        <a href="index.php?action=bottle&set=<?= $value['id']; ?>">
+          <img src='<?= $pathImg; ?><?= $value['picture']; ?>' alt="Bouteille <?= $value['picture']; ?>">
+          <h2><?= $value['name']; ?></h2>
+          <p><?= $value['year']; ?></p>
+          <p><?= $value['country']; ?></p>
+        </a>
       </div>
     <?php
     }
@@ -26,6 +28,7 @@ ob_start();
 <?php
 
 $content = ob_get_clean();
+
 
 
 require 'template.php';

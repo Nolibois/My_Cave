@@ -115,6 +115,17 @@ function listBottles($action, $order = NULL, $column = NULL)
   }
 }
 
+///////////////////// GET ONE BOTTLE /////////////////
+function oneBottle($id)
+{
+
+  $result = getBottle($id);
+  $infosBottle = $result->fetchAll();
+  $result->closeCursor();
+
+  require 'view/bottle.php';
+}
+
 
 //////////////////////// CREATE BOTTLE ///////////////////////
 function addBottle($newBottle)
@@ -132,7 +143,6 @@ function addBottle($newBottle)
 
 //////////////////////// SET BOTTLE /////////////////////////
 
-// Set bottle
 function setBottle($arrayBottle, $picture = "")
 {
 
@@ -143,8 +153,6 @@ function setBottle($arrayBottle, $picture = "")
 
 
 ////////////////////////  DELETE /////////////////////////////////
-
-//DELETE
 
 function removeBottle($id)
 {

@@ -52,6 +52,10 @@ main {
   border-radius: 8px;
   background: url("../img/ardoise.jpg") center/cover no-repeat;
 
+  .infos-data {
+    font-size: 0.7rem;
+  }
+
   form {
     display: grid;
     grid-template-columns: 1fr 2fr;

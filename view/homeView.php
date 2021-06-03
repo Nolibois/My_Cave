@@ -18,7 +18,7 @@ if (!isset($bottle1) || !isset($bottle2) || !isset($bottle3)) {
 </section>
 <section id="highlight">
   <div class="carousel">
-    <h2>Bouteille du moment</h2>
+    <h2>Bouteilles du moment</h2>
 
     <div class="single-item">
       <div>
