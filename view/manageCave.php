@@ -134,17 +134,20 @@ ob_start();
       ?>
         <div class="card-bottle">
           <div>
-            <div id="#<?= $value['id'] ?>"><img src='<?= $pathImg; ?><?= $value['picture']; ?>' alt="Bouteille <?= $value['picture']; ?>"></div>
+            <div id="#<?= $value['id'] ?>">
+              <img src='<?= $pathImg; ?><?= $value['picture']; ?>' alt="Bouteille <?= $value['picture']; ?>">
+            </div>
             <div class="name"><?= $value['name']; ?></div>
             <div class="year"><?= $value['year']; ?></div>
             <div><?= $value['grapes']; ?></div>
             <div><?= $value['country']; ?></div>
             <div><?= $value['region']; ?></div>
             <div class="description">"<?= $value['description']; ?>"</div>
-            <div class="date"><span>Créée le: </span><?= $value['date_creation']; ?></div>
             <div class="date">
-              <div class="btn-select"><a href="index.php?action=manageCave&set=<?= $value['id']; ?>">Sélectionner</a></div>
-
+              <span>Créée le: </span><?= $value['date_creation']; ?>
+            </div>
+            <div class="btn-select">
+              <a href="index.php?action=manageCave&set=<?= $value['id']; ?>">Sélectionner</a>
             </div>
           </div>
 
