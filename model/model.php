@@ -55,7 +55,7 @@ function getListBottles($order = "", $column = "")
 
   $bdd = dbConnect();
 
-  $result = $bdd->query("SELECT id, name, year, grapes, country, region, description, picture, date_creation, date_last_setting FROM bottles $orderBy");
+  $result = $bdd->query("SELECT id, name, year, grapes, country, region, description, picture, date_creation FROM bottles $orderBy");
 
   return $result;
 }
