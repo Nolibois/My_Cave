@@ -93,6 +93,7 @@ function disconnectUser()
 function listBottles($action, $order = NULL, $column = NULL)
 {
 
+  // Used to sort
   $result = getListBottles($order, $column);
   $listBottles = $result->fetchAll();
   $result->closeCursor();

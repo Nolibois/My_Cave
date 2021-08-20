@@ -10,6 +10,11 @@ $msgError = [];
 $errorConnect = [];
 $pathFolderImg = "public/uploads/";
 
+/* $pass = "MagalieDubernet";
+$result = password_hash($pass, PASSWORD_DEFAULT);
+var_dump($result);
+die; */
+
 
 /////////////////////// ACTIONS ///////////////////////////////////
 if (isset($_GET['action'])) {
@@ -37,8 +42,6 @@ if (isset($_GET['action'])) {
           $result = connectUser($_POST['email']);
 
           $infosUser = $result->fetch(PDO::FETCH_ASSOC);
-
-
 
           // Check password
           if (password_verify($_POST['pass'], $infosUser['password'])) {
