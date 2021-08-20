@@ -9,10 +9,7 @@ function dbConnect()
     ];
 
     // Localhost
-    /* $bdd = new PDO("mysql:host=localhost; dbname=mycave; charset=utf8", "root", "", $options); */
-
-    // Server
-    $bdd = new PDO("mysql:host=sql11.freemysqlhosting.net; dbname=sql11416819; charset=utf8", "sql11416819", "HlLknuiLHS", $options);
+    $bdd = new PDO("mysql:host=localhost; dbname=mycave; charset=utf8", "root", "", $options);
 
     return $bdd;
   } catch (\Throwable $th) {
